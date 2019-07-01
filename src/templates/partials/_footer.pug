@@ -1,0 +1,15 @@
+.site-footer
+	.container
+		.cols.cols-3
+			.col
+				a.site-logo.site-logo--footer(href="/") islamcivil.ru
+			.col
+				span Мы в соцсетях
+				include ./_footer-social
+			.col
+				ul.site-footer__menu
+					each i in ['Видео', 'О нас', 'Архив']
+						li= i
+		.cols.cols-7
+		
+

@@ -1,0 +1,9 @@
+header.site-header
+	.container
+		a.site-logo(href="/") ISLAMCIVIL.RU
+		nav.site-menu
+			ul
+				each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
+					li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)= item
+		hr.site-header__hr
+
