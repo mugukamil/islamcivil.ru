@@ -4,45 +4,57 @@ title: Index Page
 ---
 extends layouts/_layout
 block content
-	include partials/_searchbar
-	.categories
-		each cat in [['Акида', 'Намаз за неизвестным', 'Акыда в наследии саляфов', 'Весь Коран – это Таухид'], ['Фикх', 'Таравих – выстаивание ночей в Рамадане', 'Можно ли есть и пить во время азана?', 'Закату-ль-фитр. Основные нормы'], ['Шариат', 'Права человека и права Аллаха', 'Шариатские приоритеты в поклонении', 'Как делать выбор в Шариатских вопросах'], ['Общество', 'Я узнал тебя по голосу', 'Пророк Мухаммад - лучший из людей', 'Солнце, воздух и вода - наши лучшие друзья?'], ['Аналитика', 'Уходящий 2015-ый', 'Те, чье имя не называем', 'Аресты саудовских учёных более всего ударят по Мусульманам мира'], ['История', 'История хиджазской дороги', 'История хиджазской дороги', 'Как делать выбор в Шариатских вопросах']]
-			.cat
-				p.cat__title= cat[0]
-				.cat__card
-					.cat__content
-						p Новые статьи
-						ul
-							each c in cat.slice(1)
-								li= c
-					.cat__footer
-						a.cat__btn(href="") Перейти в раздел
-	.site-ad
-		p Реклама
-	.cols.cols-3
-		.col.popular-tags
-			p.cols__title Популярные теги
-			ul
-				-for (let i = 0; i < 6; i++)
-					each tag in ['Поклонение', 'Рамадан', 'Мечеть', 'Фикх']
-						li= tag
-		.col.remembers
-			p.cols__title Напоминания
-			img(src="img/remember.png", alt="")
-		.col.pray-times
-			p.cols__title Время намаза
-			p Вот здесь
-	.cols.cols-4
-		p.cols__title Популярные темы
-		each t in [1, 2, 3, 4]
-			.col
-				img(src=`img/pop${t}.png`, alt="")
-	.cols.cols-slider
-		p.cols__title Видео
-		each t in [1, 2, 3, 4]
-			.col.video
-				img(src=`img/video.png`, alt="")
-		a.btn.cols__btn(href="") Перейти в раздел
+	.container.container--small
+		include partials/_searchbar
+
+	.container
+		section.categories
+			each cat in [['Акида', 'Намаз за неизвестным', 'Акыда в наследии саляфов', 'Весь Коран – это Таухид'], ['Фикх', 'Таравих – выстаивание ночей в Рамадане', 'Можно ли есть и пить во время азана?', 'Закату-ль-фитр. Основные нормы'], ['Шариат', 'Права человека и права Аллаха', 'Шариатские приоритеты в поклонении', 'Как делать выбор в Шариатских вопросах'], ['Общество', 'Я узнал тебя по голосу', 'Пророк Мухаммад - лучший из людей', 'Солнце, воздух и вода - наши лучшие друзья?'], ['Аналитика', 'Уходящий 2015-ый', 'Те, чье имя не называем', 'Аресты саудовских учёных более всего ударят по Мусульманам мира'], ['История', 'История хиджазской дороги', 'История хиджазской дороги', 'Как делать выбор в Шариатских вопросах']]
+				.cat
+					p.cat__title= cat[0]
+					.cat__card
+						.cat__content(style="background-image: url(img/cat.jpeg)")
+							p.cat__info Новые статьи
+							ul.cat__menu
+								each c in cat.slice(1)
+									li: a.cat__link(href="")= c
+						.cat__footer
+							a.cat__btn.btn.btn--primary(href="") Перейти в раздел
+		section.site-ad
+			p Реклама
+		section.cols.cols-3
+			.cols__row
+				.col.popular-tags
+					p.cols__title Популярные теги
+					ul.popular-tags__list
+						-for (let i = 0; i < 6; i++)
+							-let tags = ['Поклонение', 'Рамадан', 'Мечеть', 'Фикх']
+							if (i % 2 == 0)
+								each tag in tags
+									li.popular-tags__item: a.popular-tags__link(href="")= tag
+							else
+								each tag in tags.reverse()
+									li.popular-tags__item: a.popular-tags__link(href="")= tag
+				.col.remembers
+					p.cols__title Напоминания
+					img(src="img/remember.png", alt="")
+				.col.pray-times
+					p.cols__title Время намаза
+					.pray-times__content
+						p Вот здесь
+		.cols.cols-4
+			p.cols__title.cols__title--border Популярные темы
+			.cols__row
+				each t in [1, 2, 3, 4]
+					.col
+						img(src=`img/pop${t}.png`, alt="")
+		.cols.cols-slider
+			p.cols__title.cols__title--border Видео
+			.cols__row
+				each t in [1, 2, 3, 4]
+					.col.video
+						img(src=`img/video.png`, alt="")
+			a.btn.btn--primary.cols__btn(href="") Перейти в раздел
 
 
 

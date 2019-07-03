@@ -1,0 +1,39 @@
+---
+bodyClass: category-page
+title: Видео
+countText: видео
+---
+extends layouts/_layout
+block content
+	section.search-section
+		.container.container--small
+			include partials/_searchbar
+			section.popular-searches
+				p.popular-searches__title Популярные поисковые запросы
+				ul.popular-searches__list
+					each s in ['Пророк Мухаммад (алейхи салям)', 'Салават', 'Дуа', 'Намаз', 'Никах', 'Обряды Хаджа', 'Коран', 'Наука Хадиса', 'Мазхабы', 'Наука Корана', 'Чтение Корана', 'Шариат', 'Рамадан']
+						li: a.popular-searches__link(href="")= s
+
+	.container
+		sections.videos.cols.cols-3
+			p.cols__title.cols__title--border Все видео
+			.cols__row
+				-for (let i = 1; i < 10; i++)
+					.col.video
+						.video__img: img(src='img/video.jpg', alt="")
+						.video__content
+							p.video__title: a(href="") История Халифата Кордовы
+							.video__footer
+								.video__meta
+									a.video__cat(href="") История
+			.videos__show-more.text-center
+				button.btn.btn--primary.videos__btn Показать еще
+
+
+
+
+
+
+
+
+

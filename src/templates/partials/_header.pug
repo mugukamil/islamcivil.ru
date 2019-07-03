@@ -1,9 +1,29 @@
-header.site-header
+header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 	.container
-		a.site-logo(href="/") ISLAMCIVIL.RU
-		nav.site-menu
-			ul
-				each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
-					li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)= item
-		hr.site-header__hr
+		.site-header__top.d-flex.jcsb
+			a.site-logo(href="/") ISLAMCIVIL.RU
+			nav.site-menu
+				ul.site-menu__list
+					each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
+						li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
+							a.site-menu__link(href="")= item
+							if (idx < 7)
+								ul.site-menu__sub
+									li: a.site-menu__link(href="") Шариат
+									li: a.site-menu__link(href="") Акида
+									li: a.site-menu__link(href="") Фикх
+	if (bodyClass != 'home')
+		.container.container--small
+			.site-header__info
+				h1.site-header__title= title
+				if (headerExtended)
+					p.site-header__text Некоторые стороны ислама – это настоящая наука. Основы мусульманского права, хадисоведение, науки Корана и мусульманские богословско-правовые школы, а также многое другое рассматривает в разделе «шариат».
+				.site-header__meta
+					span.site-header__posts-count 175 #{countText}
+					ul.site-header__share
+						each i in ['whatsapp', 'telegram', 'fb', 'vk', 'ok']
+							li
+								a(href="")
+									+icon(i)
+
 
