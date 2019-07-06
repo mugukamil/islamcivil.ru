@@ -28,7 +28,6 @@ const sortMediaQueries = (a, b) => {
 
 const processors = [
   autoprefixer({
-    browsers: ['last 4 versions'],
     cascade: false
   }),
   // require('lost'),

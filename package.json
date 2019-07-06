@@ -9,12 +9,14 @@
     "lint": "eslint --ignore-pattern 'src/js/lib/' --cache --format=node_modules/eslint-formatter-pretty src/js/",
     "lint-fix": "npm run lint -- --fix"
   },
+  "browserslist": [
+    "last 4 versions"
+  ],
   "lint-staged": {
     "src/templates/**/*.html": [
       "htmlhint --config .htmlhintrc"
     ]
   },
-  "authors": "Coderiver <html@coderiver.com.ua>",
   "devDependencies": {
     "autoprefixer": "^9.4.10",
     "babel-core": "^6.26.3",

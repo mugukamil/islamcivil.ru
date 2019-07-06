@@ -1,0 +1,102 @@
+.site-header
+	padding-top: 50px
+	padding-bottom: 38px
+	background-image: linear-gradient(0deg, rgba(14, 13, 13, 0.4), rgba(14, 13, 13, 0.4)), url(../img/cat-bg.jpg)
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	min-height: 284px
+	&--extended
+		min-height: 420px
+		.site-header__info
+			display: block
+		.site-header__meta
+			margin-top: 38px
+			margin-left: 0
+	.home &
+		min-height: 750px
+		background-image: url(../img/slider.jpg)
+	.single &,
+	.about &
+		min-height: 450px
+		background-image: url(../img/single-header-bg.jpg)
+		.site-header__info
+			display: block
+			max-width: 700px
+	.about &
+		background-image: url(../img/about-bg.jpeg)
+	&__subtitle
+		font-weight: 500
+		font-size: 28px
+		line-height: 27px
+		letter-spacing: 0.01em
+		color: #FFFFFF
+		margin-top: 20px
+
+	&__top
+		padding-bottom: 30px
+		border-bottom: 2px solid $border-color;
+	&__info
+		margin-top: 45px
+		display: flex
+	&__title
+		font-weight: 700
+		font-size: 48px
+		line-height: 130%
+		color: #FFFFFF
+		.about &
+			font-weight: 500
+			font-size: 34px
+			line-height: 145%
+			color: #FFFFFF
+
+	&__text
+		font-weight: 500
+		font-size: 18px
+		line-height: 135%
+		letter-spacing: 0.01em
+		color: #FFFFFF
+		max-width: 810px
+	&__meta
+		display: flex
+		max-width: 320px
+		padding: 10px 0
+		border-top: 1px solid $border-color
+		border-bottom: 1px solid $border-color
+		margin-left: 40px
+	&__posts-count
+		font-weight: 500
+		font-size: 12px
+		line-height: 130%
+		letter-spacing: 0.04em
+		color: #FFFFFF
+		display: flex
+		align-items: center
+		&:after
+			content: ''
+			width: 1px
+			height: 20px
+			background: $border-color
+			opacity: 0.5
+			display: inline-block
+			vertical-align: middle
+			margin: 0 16px
+	&__share
+		display: flex
+		align-items: center
+		li
+			width: 26px
+			height: 26px
+			display: flex
+			justify-content: center
+			align-items: center
+			& + li
+				margin-left: 20px
+		svg
+			fill: white
+		.icon-vk
+			width: 17px
+			height: 10px
+		.icon-telegram
+			width: 13px
+			height: 11px
