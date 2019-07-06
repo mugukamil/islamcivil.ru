@@ -6,13 +6,13 @@ countText: материала
 ---
 extends layouts/_layout
 block content
-	section.search-section
+	section.search-section.block-with-shadow
 		.container.container--small
 			include partials/_searchbar
 			section.popular-searches
 				p.search-section__title Архив всех публикаций за 2010 - 2019
 				p.popular-searches__subtitle Выберите год:
-				ul.popular-searches__list
+				ul.popular-searches__list.popular-searches__list--date
 					-for (let i = 2010; i < 2020; i++)
 						li: a.popular-searches__link(href="")= i
 				p.popular-searches__subtitle Выберите тему:
@@ -39,8 +39,8 @@ block content
 										path(d='M15.8983 5.68857C15.7554 5.49304 12.3497 0.900879 7.99992 0.900879C3.6502 0.900879 0.244313 5.49304 0.101531 5.68839C-0.0338438 5.87389 -0.0338438 6.12548 0.101531 6.31098C0.244313 6.50651 3.6502 11.0987 7.99992 11.0987C12.3497 11.0987 15.7554 6.50648 15.8983 6.31114C16.0339 6.12567 16.0339 5.87389 15.8983 5.68857ZM7.99992 10.0437C4.79589 10.0437 2.02085 6.99583 1.19938 5.99942C2.01979 5.00214 4.78901 1.95582 7.99992 1.95582C11.2038 1.95582 13.9787 5.0032 14.8005 6.00014C13.9801 6.99739 11.2108 10.0437 7.99992 10.0437Z', fill='#C9CBCC')
 										path(d='M7.99981 2.83496C6.25474 2.83496 4.83496 4.25474 4.83496 5.99981C4.83496 7.74488 6.25474 9.16466 7.99981 9.16466C9.74487 9.16466 11.1647 7.74488 11.1647 5.99981C11.1647 4.25474 9.74487 2.83496 7.99981 2.83496ZM7.99981 8.10969C6.83637 8.10969 5.88993 7.16322 5.88993 5.99981C5.88993 4.8364 6.8364 3.88993 7.99981 3.88993C9.16322 3.88993 10.1097 4.8364 10.1097 5.99981C10.1097 7.16322 9.16325 8.10969 7.99981 8.10969Z', fill='#C9CBCC')
 									span 2К просмотров
-			.videos__show-more.text-center
-				button.btn.btn--primary.videos__btn Показать еще
+			.show-more-block.text-center
+				button.btn.btn--primary.btn-more Показать еще
 
 
 

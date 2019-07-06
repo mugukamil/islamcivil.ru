@@ -1,10 +1,13 @@
 body
 	font-family: 'Gotham Pro'
 	font-size: 14px
-	min-width: 1300px
+	min-width: 360px
 
 img
 	max-width: 100%
+
+.block-with-shadow
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06)
 
 // Justify content
 .jcfe
@@ -20,6 +23,7 @@ img
 	text-align: center
 
 .btn
+	font-family: 'Gotham Pro'
 	&--primary
 		font-size: 16px
 		line-height: 130%
@@ -29,6 +33,10 @@ img
 		border-radius: 2px
 		padding: 10px 24px
 		display: inline-block
+		transition: .2s
+		&:hover
+			background: #060554
+			color: white
 
 .container
 	width: 1280px
@@ -53,18 +61,22 @@ img
 
 
 .site-menu
-	display: flex
+	display: none
 	align-items: center
+	+rmin(1280)
+		display: flex
 	&__list
 		display: flex
 	&__sub
 		display: none
 		position: absolute
 		top: 100%
-		right: 15px
+		right: 0px
 		text-align: right
-		padding-top: 5px
+		background-color: white
+		padding: 20px
 		a
+			color: black
 			&:after
 				content: '–'
 				margin-left: 6px
@@ -221,15 +233,9 @@ img
 		padding-left: 14px
 		padding-right: 14px
 	&__btn
-		font-size: 16px
-		line-height: 130%
-		text-align: center
-		color: #060554;
-		text-decoration: none
 		border: 1px solid $border-color
-		border-radius: 2px
-		padding: 10px 24px
-		display: inline-block
+		&:hover
+			background: #C7AA68
 
 
 
@@ -263,7 +269,6 @@ img
 		display: flex
 		justify-content: space-between
 	&__title
-		font-family: Montserrat
 		font-weight: 600
 		font-size: 28px
 		line-height: 34px
@@ -396,17 +401,24 @@ img
 		flex-wrap: wrap
 		max-width: 900px
 		margin-bottom: 20px
+		&--date
+			.popular-searches__link
+				text-decoration: underline
 		li
 			margin-right: 36px
 			margin-bottom: 10px
 	&__link
 		font-size: 18px
 		line-height: 145%
-		text-decoration: underline
 		color: #1B65A9
+		text-decoration: none
+		&:hover
+			color: #771726
+
+.search-articles
+	padding: 0 20px
 
 .search-section
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06)
 	padding-bottom: 30px
 	margin-bottom: 50px
 	&__title
@@ -415,6 +427,57 @@ img
 		line-height: 130%
 		color: #063561
 		margin-bottom: 30px
+	&__link
+		padding: 0 20px
+		margin-top: 60px
+		margin-bottom: -60px
+		a
+			font-size: 16px
+			line-height: 15px
+			color: #063561
+			text-decoration: none
+			&:hover
+				color: $link-hover-color
+
+.search-article
+	padding-top: 40px
+	border-top: 1px solid #DA9A1D
+	margin-top: 40px
+	&__title
+		font-weight: 700
+		font-size: 28px
+		line-height: 27px
+		letter-spacing: 0.01em
+		color: #063561
+		margin-bottom: 20px
+	&__text
+		font-size: 20px
+		line-height: 150%
+		color: #131212
+		margin-bottom: 24px
+	&__footer
+		display: flex
+		justify-content: space-between
+	&__cat
+		font-weight: 500
+		font-size: 18px
+		line-height: 150%
+		color: #C9CBCC
+	&__link
+		font-size: 20px
+		line-height: 130%
+		color: #1B65A9
+		text-decoration: none
+		&:after
+			content: ''
+			background-image: url(../img/search-arrow-right.svg)
+			width: 6px
+			height: 10px
+			display: inline-block
+			margin-left: 6px
+			vertical-align: middle
+
+
 
 
 .subcats
@@ -456,21 +519,26 @@ img
 		&:hover
 			text-decoration: none
 
+.btn-more
+	width: 414px
+	border: 1px solid #060554
+	display: flex
+	align-items: center
+	justify-content: center
+	&--small
+		width: 320px
+
+.show-more-block
+	display: flex
+	justify-content: center
+	margin-bottom: 40px
+	&--mt
+		margin-top: 50px
 
 .posts,
 .videos
 	.cols__row
 		flex-wrap: wrap
-	&__btn
-		width: 414px
-		border: 1px solid #060554
-		display: flex
-		align-items: center
-		justify-content: center
-	&__show-more
-		display: flex
-		justify-content: center
-		margin-bottom: 40px
 
 
 .post,

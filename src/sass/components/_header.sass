@@ -16,6 +16,8 @@
 	.home &
 		min-height: 750px
 		background-image: url(../img/slider.jpg)
+		+r(1280)
+			min-height: 530px
 	.single &,
 	.about &
 		min-height: 450px
@@ -25,6 +27,12 @@
 			max-width: 700px
 	.about &
 		background-image: url(../img/about-bg.jpeg)
+	&__search-icon,
+	&__menu-icon
+		background: transparent
+		display: inline-block
+		+rmin(1280)
+			display: none
 	&__subtitle
 		font-weight: 500
 		font-size: 28px
@@ -32,7 +40,6 @@
 		letter-spacing: 0.01em
 		color: #FFFFFF
 		margin-top: 20px
-
 	&__top
 		padding-bottom: 30px
 		border-bottom: 2px solid $border-color;
@@ -49,7 +56,6 @@
 			font-size: 34px
 			line-height: 145%
 			color: #FFFFFF
-
 	&__text
 		font-weight: 500
 		font-size: 18px
