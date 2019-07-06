@@ -16,14 +16,17 @@ header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 		.container.container--small
 			.site-header__info
 				h1.site-header__title= title
+				if (bodyClass == 'single')
+					h2.site-header__subtitle Что необходимо знать ?
 				if (headerExtended)
 					p.site-header__text Некоторые стороны ислама – это настоящая наука. Основы мусульманского права, хадисоведение, науки Корана и мусульманские богословско-правовые школы, а также многое другое рассматривает в разделе «шариат».
-				.site-header__meta
-					span.site-header__posts-count 175 #{countText}
-					ul.site-header__share
-						each i in ['whatsapp', 'telegram', 'fb', 'vk', 'ok']
-							li
-								a(href="")
-									+icon(i)
+				if (bodyClass != 'single')
+					.site-header__meta
+						span.site-header__posts-count 175 #{countText}
+						ul.site-header__share
+							each i in ['whatsapp', 'telegram', 'fb', 'vk', 'ok']
+								li
+									a(href="")
+										+icon(i)
 
 

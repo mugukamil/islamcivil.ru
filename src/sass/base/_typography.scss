@@ -112,3 +112,11 @@
     src: url("../fonts/Inter-Italic.woff2") format("woff2"),
         url("../fonts/Inter-Italic.woff") format("woff");
 }
+
+@font-face {
+    font-family: "Source Serif Pro";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Source Serif Pro"), local("SourceSerifPro-Regular"),
+        url(../fonts/soure-serif-pro.woff2) format("woff2");
+}

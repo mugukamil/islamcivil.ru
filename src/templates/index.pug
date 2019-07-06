@@ -26,15 +26,15 @@ block content
 			.cols__row
 				.col.popular-tags
 					p.cols__title Популярные теги
-					ul.popular-tags__list
+					ul.popular-tags__list.tags
 						-for (let i = 0; i < 6; i++)
 							-let tags = ['Поклонение', 'Рамадан', 'Мечеть', 'Фикх']
 							if (i % 2 == 0)
 								each tag in tags
-									li.popular-tags__item: a.popular-tags__link(href="")= tag
+									li.popular-tags__item: a.tags__link.popular-tags__link(href="")= tag
 							else
 								each tag in tags.reverse()
-									li.popular-tags__item: a.popular-tags__link(href="")= tag
+									li.popular-tags__item: a.tags__link.popular-tags__link(href="")= tag
 				.col.remembers
 					p.cols__title Напоминания
 					img(src="img/remember.png", alt="")
