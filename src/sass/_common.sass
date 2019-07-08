@@ -39,7 +39,7 @@ img
 			color: white
 
 .container
-	width: 1280px
+	max-width: 1280px
 	margin: 0 auto
 	&--small
 		padding: 0 108px
@@ -50,12 +50,13 @@ img
 
 .site-logo
 	font-family: Colus
-	font-size: 32px
+	font-size: 20px
 	line-height: 130%
-	display: flex
-	align-items: center
-	color: white
+	letter-spacing: 0.04em
 	text-decoration: none
+	color: #FFFFFF
+	+rmin(768)
+		font-size: 32px
 	&--footer
 		font-size: 28px
 
@@ -68,24 +69,18 @@ img
 	&__list
 		display: flex
 	&__sub
-		display: none
-		position: absolute
-		top: 100%
-		right: 0px
-		text-align: right
-		background-color: white
-		padding: 20px
-		a
-			color: black
-			&:after
-				content: '–'
-				margin-left: 6px
+		&-out
+			display: none
+			position: absolute
+			top: 100%
+			left: 0px
+			padding-top: 40px
 	&__item
 		display: flex
 		margin-right: 18px
 		position: relative
 		&:hover
-			.site-menu__sub
+			.site-menu__sub-out
 				display: block
 		&:last-child
 			margin-right: 0
@@ -101,10 +96,10 @@ img
 					cursor: pointer
 					width: 8px
 					height: 8px
-					transform: rotate(45deg);
-					border: solid white;
-					border-width: 0 1px 1px 0;
-					display: inline-block;
+					transform: rotate(45deg)
+					border: solid white
+					border-width: 0 1px 1px 0
+					display: inline-block
 					margin-left: 8px
 					margin-bottom: 3px
 	&__link
@@ -115,6 +110,62 @@ img
 		color: white
 		text-decoration: none
 		display: inline-block
+
+.sub-menu
+	&,
+	&__sub
+		background-color: white
+		box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.15)
+		border-radius: 2px
+		padding: 16px 0
+		width: 276px
+		transition: .2s
+
+.sub-menu
+	a
+		padding-left: 16px
+		padding-right: 16px
+		width: 100%
+		display: flex
+		align-items: center
+	&__link
+		font-size: 18px
+		line-height: 17px
+		color: #063561
+		text-decoration: none
+	&__item
+		& + li
+			margin-top: 18px
+		&:hover
+			.sub-menu__link
+				color: $link-hover-color
+			.sub-menu__sub
+				display: block
+		&--with-sub
+			> a
+				&:after
+					content: ''
+					display: inline-block
+					background-image: url('../img/arrow-right-submenu.svg')
+					width: 6px
+					height: 10px
+					margin-left: 10px
+	&__sub
+		display: none
+		position: absolute
+		left: calc(100% + 4px)
+		top: 40px
+		transition: 2s
+		li
+			& + li
+				margin-top: 10px
+		a
+			font-size: 16px
+			line-height: 145%
+			text-decoration: underline
+			color: #063561
+
+
 
 
 .site-search

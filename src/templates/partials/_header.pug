@@ -24,10 +24,15 @@ header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 						li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
 							a.site-menu__link(href="")= item
 							if (idx < 7)
-								ul.site-menu__sub
-									li: a.site-menu__link(href="") Шариат
-									li: a.site-menu__link(href="") Акида
-									li: a.site-menu__link(href="") Фикх
+								.site-menu__sub-out
+									ul.site-menu__sub.sub-menu
+										each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
+											li.sub-menu__item(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
+												a.sub-menu__link(href="")= i[0]
+												if (i.slice(1).length)
+													ul.sub-menu__sub
+														each s in i.slice(1)
+															li: a(href="")= s
 			button.site-header__search-icon: +icon('search-icon')
 
 	if (bodyClass != 'home')

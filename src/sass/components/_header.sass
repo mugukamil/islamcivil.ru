@@ -27,8 +27,15 @@
 			max-width: 700px
 	.about &
 		background-image: url(../img/about-bg.jpeg)
+	&__search-icon
+		svg
+			fill: white
+			width: 17px
+			height: 17px
+
 	&__search-icon,
 	&__menu-icon
+		cursor: pointer
 		background: transparent
 		display: inline-block
 		+rmin(1280)
@@ -43,6 +50,9 @@
 	&__top
 		padding-bottom: 30px
 		border-bottom: 2px solid $border-color;
+		+r(1280)
+			padding-left: 18px
+			padding-right: 18px
 	&__info
 		margin-top: 45px
 		display: flex
