@@ -20,8 +20,9 @@ block content
 									li: a.cat__link(href="")= c
 						.cat__footer
 							a.cat__btn.btn.btn--primary(href="") Перейти в раздел
-		section.site-ad
-			p Реклама
+	section.site-ad
+		p Реклама
+	.container
 		section.cols.cols-3
 			.cols__row
 				.col.popular-tags
@@ -37,7 +38,13 @@ block content
 									li.popular-tags__item: a.tags__link.popular-tags__link(href="")= tag
 				.col.remembers
 					p.cols__title Напоминания
-					img(src="img/remember.png", alt="")
+					img.remembers__img(src="img/remember.png", alt="")
+					.remembers__slider
+						each i in [1, 2, 3, 4, 5]
+							div
+								img.remembers__slide(src="img/remember.png", alt="")
+
+
 				.col.pray-times
 					p.cols__title Время намаза
 					.pray-times__content
@@ -48,12 +55,12 @@ block content
 				each t in [1, 2, 3, 4]
 					.col
 						img(src=`img/pop${t}.png`, alt="")
-		.cols.cols-slider
+		.cols
 			p.cols__title.cols__title--border Видео
-			.cols__row
-				each t in [1, 2, 3, 4]
+			.cols-slider
+				each t in [1, 2, 3, 4, 5, 6]
 					.col.video
-						img(src=`img/video.png`, alt="")
+						iframe(height="220" src="https://www.youtube.com/embed/nsIoAJo2M1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 			a.btn.btn--primary.cols__btn(href="") Перейти в раздел
 
 

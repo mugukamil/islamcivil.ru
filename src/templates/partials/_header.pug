@@ -1,57 +1,58 @@
 header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
-	.container
-		.site-header__top.d-flex.jcsb
-			button.site-header__menu-icon
-				svg(width='23', height='15', fill='none', xmlns='http://www.w3.org/2000/svg')
-					g(clip-path='url(#clip0)')
-						path(d='M.81 12h17v2h-17v-2z', fill='#fff')
-					g(clip-path='url(#clip1)')
-						path(d='M.81 0h22v1.833h-22V0zm0 4.583h22v1.834h-22V4.583zm0 4.584h22V11h-22V9.167z', fill='#fff')
-					g(clip-path='url(#clip2)')
-						path(d='M.81 6h12v1.833h-12V6zm0 4.583h12v1.834h-12v-1.834zm0 4.584h12V17h-12v-1.833z', fill='#fff')
-					defs
-						clippath#clip0
-							path(fill='#fff', transform='translate(.81 12)', d='M0 0h17v3H0z')
-						clippath#clip1
-							path(fill='#fff', transform='translate(.81)', d='M0 0h22v3H0z')
-						clippath#clip2
-							path(fill='#fff', transform='translate(.81 6)', d='M0 0h9v2H0z')
+	.sticky
+		.container
+			.site-header__top.d-flex.jcsb
+				button.site-header__menu-icon
+					svg(width='23', height='15', fill='none', xmlns='http://www.w3.org/2000/svg')
+						g(clip-path='url(#clip0)')
+							path(d='M.81 12h17v2h-17v-2z', fill='#fff')
+						g(clip-path='url(#clip1)')
+							path(d='M.81 0h22v1.833h-22V0zm0 4.583h22v1.834h-22V4.583zm0 4.584h22V11h-22V9.167z', fill='#fff')
+						g(clip-path='url(#clip2)')
+							path(d='M.81 6h12v1.833h-12V6zm0 4.583h12v1.834h-12v-1.834zm0 4.584h12V17h-12v-1.833z', fill='#fff')
+						defs
+							clippath#clip0
+								path(fill='#fff', transform='translate(.81 12)', d='M0 0h17v3H0z')
+							clippath#clip1
+								path(fill='#fff', transform='translate(.81)', d='M0 0h22v3H0z')
+							clippath#clip2
+								path(fill='#fff', transform='translate(.81 6)', d='M0 0h9v2H0z')
 
-			a.site-logo(href="/") ISLAMCIVIL.RU
-			nav.site-menu
-				ul.site-menu__list
-					each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
-						li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
-							a.site-menu__link(href="")= item
-							if (idx < 7)
-								.site-menu__sub-out
-									ul.site-menu__sub.sub-menu
-										each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
-											li.sub-menu__item(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
-												a.sub-menu__link(href="")= i[0]
-												if (i.slice(1).length)
-													ul.sub-menu__sub
-														each s in i.slice(1)
-															li: a(href="")= s
-			button.site-header__search-icon: +icon('search-icon')
+				a.site-logo(href="/") ISLAMCIVIL.RU
+				nav.site-menu
+					ul.site-menu__list
+						each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
+							li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
+								a.site-menu__link(href="")= item
+								if (idx < 7)
+									.site-menu__sub-out
+										ul.site-menu__sub.sub-menu
+											each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
+												li.sub-menu__item(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
+													a.sub-menu__link(href="")= i[0]
+													if (i.slice(1).length)
+														ul.sub-menu__sub
+															each s in i.slice(1)
+																li: a(href="")= s
+				button.site-header__search-icon: +icon('search-icon')
 
-	if (bodyClass != 'home')
-		.container.container--small
-			.site-header__info
-				h1.site-header__title= title
-				if (aboutText)
-					p.about__logo-text= aboutText
-				if (bodyClass.split(' ').includes('single'))
-					h2.site-header__subtitle Что необходимо знать ?
-				if (headerExtended)
-					p.site-header__text Некоторые стороны ислама – это настоящая наука. Основы мусульманского права, хадисоведение, науки Корана и мусульманские богословско-правовые школы, а также многое другое рассматривает в разделе «шариат».
-				if (headerWithSocial)
-					.site-header__meta
-						span.site-header__posts-count 175 #{countText}
-						ul.site-header__share
-							each i in ['whatsapp', 'telegram', 'fb', 'vk', 'ok']
-								li
-									a(href="")
-										+icon(i)
+		if (bodyClass != 'home')
+			.container.container--small
+				.site-header__info
+					h1.site-header__title= title
+					if (aboutText)
+						p.about__logo-text= aboutText
+					if (bodyClass.split(' ').includes('single'))
+						h2.site-header__subtitle Что необходимо знать ?
+					if (headerExtended)
+						p.site-header__text Некоторые стороны ислама – это настоящая наука. Основы мусульманского права, хадисоведение, науки Корана и мусульманские богословско-правовые школы, а также многое другое рассматривает в разделе «шариат».
+					if (headerWithSocial)
+						.site-header__meta
+							span.site-header__posts-count 175 #{countText}
+							ul.site-header__share
+								each i in ['whatsapp', 'telegram', 'fb', 'vk', 'ok']
+									li
+										a(href="")
+											+icon(i)
 
 

@@ -1,3 +1,15 @@
+.sticky
+	position: fixed
+	top: 0
+	right: 0
+	left: 0
+	z-index: 150
+	color: #fff
+	.is-scrolled &
+		background: white
+		color: black
+		border-bottom: 1px solid #ebebeb
+
 .site-header
 	padding-top: 50px
 	padding-bottom: 38px
@@ -14,10 +26,10 @@
 			margin-top: 38px
 			margin-left: 0
 	.home &
-		min-height: 750px
+		min-height: 530px
 		background-image: url(../img/slider.jpg)
-		+r(1280)
-			min-height: 530px
+		+rmin(1024)
+			min-height: 750px
 	.single &,
 	.about &
 		min-height: 450px
@@ -38,7 +50,7 @@
 		cursor: pointer
 		background: transparent
 		display: inline-block
-		+rmin(1280)
+		+rmin(1024)
 			display: none
 	&__subtitle
 		font-weight: 500
@@ -48,11 +60,18 @@
 		color: #FFFFFF
 		margin-top: 20px
 	&__top
-		padding-bottom: 30px
-		border-bottom: 2px solid $border-color;
-		+r(1280)
-			padding-left: 18px
-			padding-right: 18px
+		align-items: center
+		border-bottom: 2px solid $border-color
+		padding-left: 18px
+		padding-right: 18px
+		height: 116px
+		transition: .3s ease all
+		.is-scrolled &
+			height: 80px
+			border-bottom: 0
+		+rmin(1024)
+			padding-left: 0
+			padding-right: 0
 	&__info
 		margin-top: 45px
 		display: flex

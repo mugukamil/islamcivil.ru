@@ -25,22 +25,28 @@ img
 .btn
 	font-family: 'Gotham Pro'
 	&--primary
-		font-size: 16px
+		font-size: 14px
 		line-height: 130%
 		text-align: center
 		color: #060554
 		text-decoration: none
 		border-radius: 2px
-		padding: 10px 24px
+		padding: 9px 10px
 		display: inline-block
-		transition: .2s
+		transition: background .2s
+		+rmin(768)
+			font-size: 16px
+			padding: 10px 24px
 		&:hover
 			background: #060554
 			color: white
+			border: 1px solid transparent
 
 .container
 	max-width: 1280px
 	margin: 0 auto
+	+r(1280)
+		padding: 0 16px
 	&--small
 		padding: 0 108px
 
@@ -54,9 +60,16 @@ img
 	line-height: 130%
 	letter-spacing: 0.04em
 	text-decoration: none
-	color: #FFFFFF
+	color: inherit
+	transition: .3s ease-in font-size
 	+rmin(768)
+		font-size: 24px
+		.is-scrolled &
+			font-size: 22px
+	+rmin(1280)
 		font-size: 32px
+		.is-scrolled &
+			font-size: 30px
 	&--footer
 		font-size: 28px
 
@@ -64,7 +77,7 @@ img
 .site-menu
 	display: none
 	align-items: center
-	+rmin(1280)
+	+rmin(1024)
 		display: flex
 	&__list
 		display: flex
@@ -75,17 +88,23 @@ img
 			top: 100%
 			left: 0px
 			padding-top: 40px
+			.is-scrolled &
+				padding-top: 30px
 	&__item
 		display: flex
-		margin-right: 18px
+		margin-right: 10px
 		position: relative
+		+rmin(1280)
+			margin-right: 18px
 		&:hover
 			.site-menu__sub-out
 				display: block
 		&:last-child
 			margin-right: 0
 		&.with-sub
-			margin-right: 22px
+			margin-right: 15px
+			+rmin(1280)
+				margin-right: 22px
 			&:nth-child(7)
 				margin-right: 15px
 				padding-right: 15px
@@ -97,19 +116,26 @@ img
 					width: 8px
 					height: 8px
 					transform: rotate(45deg)
-					border: solid white
+					border-color: inherit
+					border: solid
 					border-width: 0 1px 1px 0
 					display: inline-block
-					margin-left: 8px
+					margin-left: 5px
 					margin-bottom: 3px
+					.is-scrolled &
+						border-color: inherit
+					+rmin(1280)
+						margin-left: 8px
 	&__link
 		font-weight: 500
-		font-size: 18px
+		font-size: 14px
 		line-height: 130%
 		display: flex
-		color: white
+		color: inherit
 		text-decoration: none
 		display: inline-block
+		+rmin(1280)
+			font-size: 18px
 
 .sub-menu
 	&,
@@ -156,6 +182,8 @@ img
 		left: calc(100% + 4px)
 		top: 40px
 		transition: 2s
+		.is-scrolled &
+			top: 30px
 		li
 			& + li
 				margin-top: 10px
@@ -170,6 +198,9 @@ img
 
 .site-search
 	margin-top: 50px
+	display: none
+	+rmin(1024)
+		display: block
 	&__row
 		display: flex
 		justify-content: space-between
@@ -196,42 +227,55 @@ img
 	border: 2px solid rgba(17, 27, 84, 0.5)
 	border-radius: 4px
 	max-width: 900px
-	width: 100%
+	width: 80%
 	font-size: 18px
 	line-height: 140%
 	color: #8D9293
 	padding: 12px 20px
+	+rmin(1280)
+		width: 100%
 
 
 .categories
 	display: flex
 	justify-content: space-between
 	flex-wrap: wrap
-	margin-top: 60px
+	margin-top: 40px
+	+rmin(768)
+		margin-top: 60px
+		overflow: hidden
 
 .cat
-	flex-basis: 32.3%
+	flex-basis: 100%
 	margin-bottom: 40px
+	+rmin(768)
+		flex-basis: 49%
+	+rmin(1024)
+		flex-basis: 32.3%
 	&:nth-child(3n)
 		.cat__title
 			width: 100%
 	&__title
-		padding-bottom: 20px
-		font-size: 32px
-		line-height: 31px
+		font-size: 20px
+		line-height: 19px
+		padding-bottom: 14px
 		letter-spacing: 0.01em
 		color: #092C4D
 		border-bottom: 2px solid $border-color
 		font-weight: 500
 		margin-bottom: 24px
-		width: 105%
+		+rmin(768)
+			font-size: 32px
+			padding-bottom: 20px
+			line-height: 31px
+			width: 105%
 	&__card
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08)
 		padding-bottom: 20px
 	&__info
 		font-size: 12px
 		line-height: 130%
-		letter-spacing: 0.08em;
+		letter-spacing: 0.08em
 		color: #FFFFFF
 		font-weight: bold
 		margin-top: 20px
@@ -247,7 +291,7 @@ img
 			margin-right: 8px
 	&__content
 		min-height: 280px
-		background-size: 460px 280px
+		background-size: cover
 		background-repeat: no-repeat
 		background-position: center
 		display: flex
@@ -260,16 +304,19 @@ img
 			position: relative
 			&:before
 				content: ''
-				width: 6px
-				height: 6px
+				width: 4px
+				height: 4px
 				display: inline-block
 				background: white
 				border-radius: 50%
 				vertical-align: middle
 				position: absolute
 				top: 8px
+				+rmin(768)
+					width: 6px
+					height: 6px
 			& + li
-				margin-top: 5px
+				margin-top: 8px
 	&__link
 		font-size: 16px
 		line-height: 145%
@@ -291,13 +338,22 @@ img
 
 
 .site-ad
-	border: 1px solid #063561
-	border-radius: 4px
-	height: 150px
+	width: 100%
 	display: flex
 	align-items: center
 	justify-content: center
 	margin-bottom: 40px
+	height: 220px
+	background: rgba(141, 146, 147, 0.2)
+	+rmin(768)
+		width: 97%
+		max-width: 1280px
+		margin-left: auto
+		margin-right: auto
+		border: 1px solid #063561
+		border-radius: 4px
+		height: 150px
+		background: transparent
 	p
 		font-size: 38px
 		line-height: 140%
@@ -309,21 +365,52 @@ img
 	margin-bottom: 42px
 	&-3
 		.col
-			flex-basis: 32.3%
+			flex-basis: 100%
+			img
+				max-height: 334px
+				object-fit: contain
+			+rmin(768)
+				flex-basis: 32.3%
+				img
+					max-height: 414px
 	&-4
 		.col
-			flex-basis: 23.75%
+			flex-basis: 49%
+			max-height: 160px
+			margin-bottom: 8px
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+			+rmin(1024)
+				flex-basis: 23.75%
+				max-height: 350px
 	&-7
 		.col
-			flex-basis: 11.5%
+			flex-basis: 45%
+			+rmin(1280)
+				flex-basis: 11.5%
 	&__row
 		display: flex
 		justify-content: space-between
+		flex-wrap: wrap
+		+rmin(1280)
+			flex-wrap: nowrap
 	&__title
-		font-weight: 600
-		font-size: 28px
-		line-height: 34px
-		margin-bottom: 25px
+		font-weight: 500
+		font-size: 20px
+		line-height: 19px
+		padding-bottom: 14px
+		border-bottom: 2px solid $border-color
+		margin-bottom: 14px
+		color: $footer-color
+		+rmin(768)
+			font-weight: 600
+			font-size: 28px
+			line-height: 34px
+			margin-bottom: 25px
+			padding-bottom: 0
+			border-bottom: 0
 		&--border
 			border-bottom: 2px solid $border-color
 			padding-bottom: 24px
@@ -351,6 +438,9 @@ img
 		border-radius: 4px
 
 .popular-tags
+	display: none
+	+rmin(768)
+		display: block
 	&__list
 		display: flex
 		align-items: center
@@ -411,7 +501,8 @@ img
 
 .footer-menu
 	.col + .col
-		margin-left: 16px
+		+rmin(1280)
+			margin-left: 16px
 	&__title
 		font-weight: 500
 		font-size: 20px
@@ -419,6 +510,9 @@ img
 		color: #D7BE7C
 		margin-bottom: 15px
 	&__sub
+		display: none
+		+rmin(1280)
+			display: block
 		li
 			max-width: 145px
 			& + li
@@ -586,10 +680,7 @@ img
 	&--mt
 		margin-top: 50px
 
-.posts,
-.videos
-	.cols__row
-		flex-wrap: wrap
+
 
 
 .post,
@@ -597,6 +688,8 @@ img
 	background: #FEFEFE
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08)
 	margin-bottom: 40px
+	.cols__row
+		flex-wrap: wrap
 	&__content
 		padding: 16px
 	&__title
@@ -641,11 +734,13 @@ img
 			font-weight: 500
 			font-size: 10px
 			line-height: 130%
-			text-align: right;
+			text-align: right
 			color: #C9CBCC
 			margin-left: 8px
 
 .video
+	box-shadow: none
+	margin-bottom: 30px
 	&__title
 		max-width: 280px
 	&__footer
@@ -938,3 +1033,52 @@ img
 			color: #8D9293
 
 
+
+.slick-arrow
+	width: 40px
+	height: 40px
+	background: #C4C4C4
+	border-radius: 4px
+	font-size: 0
+	position: absolute
+	top: -90px
+	right: 0
+	&:hover
+		background: $footer-color
+
+.slick-prev
+	right: 50px
+
+.slick-next
+	transform: rotate(180deg)
+
+
+
+.remembers
+	overflow: hidden
+	&__slider
+		overflow: hidden
+		.slick-dots
+			display: flex
+			align-items: center
+			justify-content: center
+			margin: auto
+			li
+				& + li
+					margin-left: 6px
+			button
+				font-size: 0
+				width: 6px
+				height: 6px
+				background: #C4C4C4
+				border-radius: 100%
+				display: inline-block
+			.slick-active button
+				background: $footer-color
+
+	&__slide
+		width: auto
+	&__img
+		display: none
+		+rmin(768)
+			display: inline-block
