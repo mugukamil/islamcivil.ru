@@ -20,6 +20,10 @@ block content
 									li: a.cat__link(href="")= c
 						.cat__footer
 							a.cat__btn.btn.btn--primary(href="") Перейти в раздел
+	.container
+		section.socials
+			p Подписывайтесь на наши соц.сети
+			include partials/_footer-social
 	section.site-ad
 		p Реклама
 	.container
@@ -46,7 +50,9 @@ block content
 
 
 				.col.pray-times
-					p.cols__title Время намаза
+					p.cols__title
+						span Время намаза
+						span 25. 07. 1440 г.х.
 					.pray-times__content
 						p Вот здесь
 		.cols.cols-4
@@ -55,12 +61,18 @@ block content
 				each t in [1, 2, 3, 4]
 					.col
 						img(src=`img/pop${t}.png`, alt="")
-		.cols
+		.cols.video-slider
 			p.cols__title.cols__title--border Видео
-			.cols-slider
+			.video-slider__in
 				each t in [1, 2, 3, 4, 5, 6]
 					.col.video
 						iframe(height="220" src="https://www.youtube.com/embed/nsIoAJo2M1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+						p Какое - то  описание небольшое на три строчки
+			.video-slider__nav
+				each t in [1, 2, 3, 4, 5, 6]
+					.col.video
+						iframe(width="140" height="90" src="https://www.youtube.com/embed/nsIoAJo2M1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+						p Какое - то  описание небольшое на три строчки
 			a.btn.btn--primary.cols__btn(href="") Перейти в раздел
 
 

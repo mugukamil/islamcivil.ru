@@ -41,7 +41,6 @@
 		background-image: url(../img/about-bg.jpeg)
 	&__search-icon
 		svg
-			fill: white
 			width: 17px
 			height: 17px
 
@@ -50,8 +49,16 @@
 		cursor: pointer
 		background: transparent
 		display: inline-block
+		color: white
 		+rmin(1024)
 			display: none
+		svg,
+		svg path
+			fill: white
+			.is-scrolled &
+
+				fill: black
+
 	&__subtitle
 		font-weight: 500
 		font-size: 28px
@@ -62,8 +69,6 @@
 	&__top
 		align-items: center
 		border-bottom: 2px solid $border-color
-		padding-left: 18px
-		padding-right: 18px
 		height: 116px
 		transition: .3s ease all
 		.is-scrolled &
