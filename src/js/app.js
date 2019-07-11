@@ -1,14 +1,16 @@
 import $ from "jquery";
 import "slick-carousel";
 
-$(document).ready(function() {
+$(document).ready(function ready() {
   const $thirdCat = $(".cat:nth-child(3)");
-  const thirdCatOffset = $thirdCat.offset().top;
-  const thirdCatHeight = $thirdCat.height();
+  if ($thirdCat.length) {
+    const thirdCatOffset = $thirdCat.length ? $thirdCat.offset().top : false;
+    const thirdCatHeight = $thirdCat.height();
 
-  $(".socials").css({
-    top: thirdCatOffset + thirdCatHeight
-  });
+    $(".socials").css({
+      top: thirdCatOffset + thirdCatHeight + 40
+    });
+  }
 
   function scrollStarted() {
     const start = 1;
@@ -22,7 +24,9 @@ $(document).ready(function() {
   if (window.innerWidth > 300) {
     window.addEventListener(
       "scroll",
-      () => window.requestAnimationFrame(scrollStarted),
+      function windowOnScroll() {
+        window.requestAnimationFrame(scrollStarted);
+      },
       { passive: !0 }
     );
 

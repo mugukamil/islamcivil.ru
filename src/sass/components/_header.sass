@@ -17,7 +17,9 @@
 	background-repeat: no-repeat
 	background-position: center
 	background-size: cover
-	min-height: 284px
+	min-height: 210px
+	+rmin(768)
+		min-height: 284px
 	&--extended
 		min-height: 420px
 		.site-header__info
@@ -56,9 +58,7 @@
 		svg path
 			fill: white
 			.is-scrolled &
-
 				fill: black
-
 	&__subtitle
 		font-weight: 500
 		font-size: 28px
@@ -68,23 +68,37 @@
 		margin-top: 20px
 	&__top
 		align-items: center
+		padding-top: 5px
 		border-bottom: 2px solid $border-color
-		height: 116px
+		height: 56px
 		transition: .3s ease all
 		.is-scrolled &
-			height: 80px
 			border-bottom: 0
+		+rmin(768)
+			height: 116px
+			padding-top: 15px
+			.is-scrolled &
+				height: 80px
+				padding-top: 0
 		+rmin(1024)
 			padding-left: 0
 			padding-right: 0
 	&__info
-		margin-top: 45px
+		margin-top: 30px
 		display: flex
+		flex-direction: column
+		+rmin(768)
+			flex-direction: row
+			margin-top: 45px
 	&__title
+		font-size: 24px
 		font-weight: 700
-		font-size: 48px
 		line-height: 130%
 		color: #FFFFFF
+		margin-bottom: 10px
+		+rmin(768)
+			font-size: 48px
+			margin-bottom: 0
 		.about &
 			font-weight: 500
 			font-size: 34px
@@ -103,7 +117,8 @@
 		padding: 10px 0
 		border-top: 1px solid $border-color
 		border-bottom: 1px solid $border-color
-		margin-left: 40px
+		+rmin(768)
+			margin-left: 40px
 	&__posts-count
 		font-weight: 500
 		font-size: 12px
