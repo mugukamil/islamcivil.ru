@@ -383,7 +383,8 @@ img
 			flex-basis: 100%
 			img
 				max-height: 334px
-				object-fit: contain
+				object-fit: cover
+				width: 100%
 			+rmin(768)
 				flex-basis: 32.3%
 				img
@@ -409,8 +410,6 @@ img
 		display: flex
 		justify-content: space-between
 		flex-wrap: wrap
-		+rmin(1280)
-			flex-wrap: nowrap
 	&__title
 		font-weight: 500
 		font-size: 20px
@@ -585,8 +584,9 @@ img
 
 
 .popular-searches
-	margin-left: 20px
-	margin-top: 30px
+	+rmin(768)
+		margin-left: 20px
+		margin-top: 30px
 	&__title
 		font-weight: 500
 		font-size: 16px
@@ -595,11 +595,13 @@ img
 		color: #063561
 		margin-bottom: 16px
 	&__subtitle
+		font-size: 14px
 		font-weight: 500
-		font-size: 18px
 		line-height: 130%
 		color: #063561
 		margin-bottom: 5px
+		+rmin(768)
+			font-size: 18px
 	&__list
 		display: flex
 		flex-wrap: wrap
@@ -612,10 +614,12 @@ img
 			margin-right: 36px
 			margin-bottom: 10px
 	&__link
-		font-size: 18px
+		font-size: 22px
 		line-height: 145%
 		color: #1B65A9
 		text-decoration: none
+		+rmin(768)
+			font-size: 18px
 		&:hover
 			color: #771726
 
@@ -626,11 +630,14 @@ img
 	padding-bottom: 30px
 	margin-bottom: 50px
 	&__title
+		display: none
 		font-weight: 500
 		font-size: 24px
 		line-height: 130%
 		color: #063561
 		margin-bottom: 30px
+		+rmin(768)
+			display: block
 	&__link
 		padding: 0 20px
 		margin-top: 60px
