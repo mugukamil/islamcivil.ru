@@ -34,6 +34,7 @@ img
 		padding: 9px 10px
 		display: inline-block
 		transition: background .2s
+		background: transparent
 		+rmin(768)
 			font-size: 16px
 			padding: 10px 24px
@@ -588,12 +589,14 @@ img
 		margin-left: 20px
 		margin-top: 30px
 	&__title
+		font-size: 14px
 		font-weight: 500
-		font-size: 16px
 		line-height: 130%
 		letter-spacing: 0.04em
 		color: #063561
 		margin-bottom: 16px
+		+rmin(768)
+			font-size: 16px
 	&__subtitle
 		font-size: 14px
 		font-weight: 500
@@ -611,13 +614,21 @@ img
 			.popular-searches__link
 				text-decoration: underline
 		li
-			margin-right: 36px
+			margin-right: 32px
 			margin-bottom: 10px
+			.popular-searches--cat &
+				+r(768)
+					margin-right: 16px
 	&__link
 		font-size: 22px
 		line-height: 145%
 		color: #1B65A9
 		text-decoration: none
+		&--mob-small
+			font-size: 14px
+			text-decoration: underline
+			+rmin(768)
+				font-size: 22px
 		+rmin(768)
 			font-size: 18px
 		&:hover
@@ -692,14 +703,15 @@ img
 
 
 .subcats
-	margin-left: 100px
-	margin-right: 45px
-	margin-top: 50px
-	margin-bottom: 50px
+	+rmin(768)
+		margin: 50px 45px 50px 100px
 .subcat
+	margin-bottom: 40px
 	& + .subcat
-		border-left: 2px solid rgba(141, 146, 147, 0.2)
-		padding-left: 60px
+		+rmin(768)
+			border-left: 2px solid rgba(141, 146, 147, 0.2)
+			padding-left: 60px
+			margin-bottom: 0
 	&__title
 		margin-bottom: 20px
 		a
@@ -747,6 +759,11 @@ img
 	&--mt
 		margin-top: 50px
 
+
+.post
+	+r(768)
+		&:nth-child(n+4)
+			display: none
 
 
 
@@ -1203,10 +1220,14 @@ img
 	border-radius: 2px
 	text-align: center
 	padding: 20px 25px
-	position: absolute
-	width: 95%
+	margin-bottom: 30px
 	+rmin(768)
 		display: none
+	&--absolute
+		position: absolute
+		width: 90%
+		left: 50%
+		transform: translateX(-50%)
 	ul
 		margin-left: 0
 		justify-content: center
@@ -1216,4 +1237,35 @@ img
 		line-height: 140%
 		color: #063561
 		margin-bottom: 20px
+
+.mobile-breadcrumbs
+	display: flex
+	align-items: center
+	margin-top: 25px
+	margin-bottom: 22px
+	li
+		font-weight: 500
+		font-size: 12px
+		line-height: 130%
+		letter-spacing: 0.04em
+		color: #0D2D42
+		& + li
+			margin-left: 9px
+		a
+			color: rgba(13, 45, 66, 0.7)
+			text-decoration: none
+			&:after
+				content: ''
+				cursor: pointer
+				width: 6px
+				height: 6px
+				transform: rotate(-45deg)
+				border-style: solid
+				border-color: #0D2D42
+				border-width: 0 1px 1px 0
+				display: inline-block
+				margin-left: 5px
+				margin-bottom: 1px
+
+
 

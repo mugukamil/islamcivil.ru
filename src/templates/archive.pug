@@ -9,6 +9,9 @@ block content
 	section.search-section.block-with-shadow
 		.container.container--small
 			include partials/_searchbar
+			ul.mobile-breadcrumbs
+				li: a(href="") Главная
+				li Видео
 			section.popular-searches
 				p.search-section__title Архив всех публикаций за 2010 - 2019
 				p.popular-searches__subtitle Выберите год:
@@ -21,11 +24,11 @@ block content
 						li: a.popular-searches__link(href="")= i
 
 	.container
-		sections.videos.cols.cols-3
+		sections.cols.cols-3
 			p.cols__title.cols__title--border Весь архив
 			.cols__row
 				-for (let i = 1; i < 10; i++)
-					.col.post
+					article.col.post
 						.post__img: img(src=`img/post${i}.jpg`, alt="")
 						.post__content
 							p.post__title: a(href="") Заголовок статьи из двух строк максимум

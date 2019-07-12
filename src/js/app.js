@@ -7,7 +7,7 @@ $(document).ready(function ready() {
     const thirdCatOffset = $thirdCat.length ? $thirdCat.offset().top : false;
     const thirdCatHeight = $thirdCat.height();
 
-    $(".socials").css({
+    $(".socials--absolute").css({
       top: thirdCatOffset + thirdCatHeight + 40
     });
   }

@@ -12,7 +12,7 @@
 
 .site-header
 	padding-top: 50px
-	padding-bottom: 38px
+	padding-bottom: 12px
 	background-image: linear-gradient(0deg, rgba(14, 13, 13, 0.4), rgba(14, 13, 13, 0.4)), url(../img/cat-bg.jpg)
 	background-repeat: no-repeat
 	background-position: center
@@ -20,13 +20,15 @@
 	min-height: 210px
 	+rmin(768)
 		min-height: 284px
+		padding-bottom: 38px
 	&--extended
-		min-height: 420px
+		+rmin(768)
+			min-height: 420px
+			.site-header__meta
+				margin-top: 38px
+				margin-left: 0
 		.site-header__info
 			display: block
-		.site-header__meta
-			margin-top: 38px
-			margin-left: 0
 	.home &
 		min-height: 530px
 		background-image: url(../img/slider.jpg)
@@ -84,7 +86,7 @@
 			padding-left: 0
 			padding-right: 0
 	&__info
-		margin-top: 30px
+		margin-top: 50px
 		display: flex
 		flex-direction: column
 		+rmin(768)
@@ -95,7 +97,7 @@
 		font-weight: 700
 		line-height: 130%
 		color: #FFFFFF
-		margin-bottom: 10px
+		margin-bottom: 15px
 		+rmin(768)
 			font-size: 48px
 			margin-bottom: 0
@@ -111,6 +113,8 @@
 		letter-spacing: 0.01em
 		color: #FFFFFF
 		max-width: 810px
+		+r(768)
+			display: none
 	&__meta
 		display: flex
 		max-width: 320px
@@ -140,13 +144,18 @@
 		display: flex
 		align-items: center
 		li
-			width: 26px
-			height: 26px
+			width: 24px
+			height: 24px
 			display: flex
 			justify-content: center
 			align-items: center
+			+rmin(768)
+				width: 26px
+				height: 26px
 			& + li
 				margin-left: 20px
+				+rmin(768)
+				margin-left: 16px
 		svg
 			fill: white
 		.icon-vk
