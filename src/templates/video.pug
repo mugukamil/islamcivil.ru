@@ -6,16 +6,22 @@ countText: видео
 ---
 extends layouts/_layout
 block content
-	section.search-section
+	section.search-section.block-with-shadow
 		.container.container--small
 			include partials/_searchbar
-			section.popular-searches
+			ul.mobile-breadcrumbs
+				li: a(href="") Главная
+				li Видео
+			section.popular-searches.popular-searches--cat
 				p.popular-searches__title Популярные поисковые запросы
 				ul.popular-searches__list
 					each s in ['Пророк Мухаммад (алейхи салям)', 'Салават', 'Дуа', 'Намаз', 'Никах', 'Обряды Хаджа', 'Коран', 'Наука Хадиса', 'Мазхабы', 'Наука Корана', 'Чтение Корана', 'Шариат', 'Рамадан']
-						li: a.popular-searches__link(href="")= s
+						li: a.popular-searches__link.popular-searches__link--mob-small(href="")= s
 
 	.container
+		section.socials
+			p Подписывайтесь на наши соц.сети
+			include partials/_footer-social
 		sections.videos.cols.cols-3
 			p.cols__title.cols__title--border Все видео
 			.cols__row

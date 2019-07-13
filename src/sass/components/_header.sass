@@ -36,8 +36,10 @@
 			min-height: 750px
 	.single &,
 	.about &
-		min-height: 450px
+		min-height: 310px
 		background-image: url(../img/single-header-bg.jpg)
+		+rmin(768)
+			min-height: 450px
 		.site-header__info
 			display: block
 			max-width: 700px
@@ -62,12 +64,15 @@
 			.is-scrolled &
 				fill: black
 	&__subtitle
+		font-size: 14px
 		font-weight: 500
-		font-size: 28px
 		line-height: 27px
 		letter-spacing: 0.01em
 		color: #FFFFFF
-		margin-top: 20px
+		margin-top: 10px
+		+rmin(768)
+			font-size: 28px
+			margin-top: 20px
 	&__top
 		align-items: center
 		padding-top: 5px
@@ -117,12 +122,12 @@
 			display: none
 	&__meta
 		display: flex
-		max-width: 320px
 		padding: 10px 0
 		border-top: 1px solid $border-color
 		border-bottom: 1px solid $border-color
 		+rmin(768)
 			margin-left: 40px
+			max-width: 320px
 	&__posts-count
 		font-weight: 500
 		font-size: 12px

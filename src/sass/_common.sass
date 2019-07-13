@@ -602,9 +602,10 @@ img
 		font-weight: 500
 		line-height: 130%
 		color: #063561
-		margin-bottom: 5px
+		margin-bottom: 10px
 		+rmin(768)
 			font-size: 18px
+			margin-bottom: 5px
 	&__list
 		display: flex
 		flex-wrap: wrap
@@ -743,12 +744,16 @@ img
 			text-decoration: none
 
 .btn-more
-	width: 414px
+	width: 220px
 	border: 1px solid #060554
 	display: flex
 	align-items: center
 	justify-content: center
 	background: transparent
+	font-size: 16px
+	+rmin(768)
+		width: 414px
+		font-size: 14px
 	&--small
 		width: 320px
 
@@ -760,7 +765,8 @@ img
 		margin-top: 50px
 
 
-.post
+.post,
+.video
 	+r(768)
 		&:nth-child(n+4)
 			display: none
@@ -823,10 +829,12 @@ img
 			margin-left: 8px
 
 .video
-	box-shadow: none
-	margin-bottom: 30px
+	.home &
+		box-shadow: none
+		margin-bottom: 30px
 	&__title
 		max-width: 280px
+		font-size: 20px
 	&__footer
 		margin-top: 10px
 
@@ -838,22 +846,30 @@ img
 			display: flex
 			align-items: center
 			padding: 20px 10px 40px 10px
+			flex-wrap: wrap
+			+rmin(768)
+				flex-wrap: nowrap
 	&__main
 		display: flex
 		justify-content: space-between
 		padding: 50px 0
 	&__content
-		width: 840px
-		.about &
-			width: 760px
+		+rmin(768)
+			width: 840px
+			.about &
+				width: 760px
 	&__in
-		padding-right: 80px
+		padding-right: 0
 		padding-bottom: 24px
 		border-bottom: 2px solid rgba(141, 146, 147, 0.2)
 		margin-bottom: 40px
+		+rmin(768)
+			padding-right: 80px
 	&__sidebar
 		flex-basis: 335px
 	&__share
+		+r(768)
+			display: none
 		li
 			text-align: center
 			display: flex
@@ -885,47 +901,79 @@ img
 		display: flex
 		align-items: center
 	&__views
-		margin-right: 40px
-	&__date
+		margin-right: 0
+		display: flex
+		align-items: center
 		span
+			font-size: 10px
+			margin-left: 6px
+		+rmin(768)
+			display: block
+			margin-right: 40px
+			span
+				font-size: 14px
+				margin-left: 0
+	&__date
+		font-size: 10px
+		line-height: 150%
+		color: rgba(13, 45, 66, 0.8)
+		display: flex
+		align-items: center
+		span
+			margin-left: 3px
+		+rmin(768)
 			font-size: 12px
-			line-height: 150%
-			color: rgba(13, 45, 66, 0.8)
+			display: block
+			span
+				margin-left: 0
 	&__author
 		&-text
-			margin-right: 130px
+			margin-right: 66px
+			+rmin(768)
+				margin-right: 130px
 		&-text,
 		.article__views span
-			font-size: 14px
+			font-size: 12px
 			line-height: 130%
 			letter-spacing: 0.02em
 			color: #063561
+			+rmin(768)
+				font-size: 14px
 		&-img
+			margin-right: 10px
+			background: rgba(219, 176, 92, 0.5)
+			border-radius: 65px
+			width: 34px
+			height: 34px
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-shrink: 0
+			+rmin(768)
+				width: 64px
+				height: 64px
+				margin-right: 44px
 			.article__footer &
 				width: 68px
 				height: 68px
 				img
 					width: 60px
 					height: 60px
-			margin-right: 44px
-			background: rgba(219, 176, 92, 0.5)
-			border-radius: 65px
-			width: 64px
-			height: 64px
-			display: flex
-			align-items: center
-			justify-content: center
 			img
 				border-radius: 100%
-				width: 56px
-				height: 56px
+				width: 30px
+				height: 30px
 				object-fit: cover
+				max-width: none
+				+rmin(768)
+					width: 56px
+					height: 56px
 	&__text
-		p
+		> p
 			margin-bottom: 30px
 			font-family: 'Inter'
 			font-size: 16px
-			line-height: 25px
+			line-height: 24px
 			color: #131212
 			opacity: 0.8
 		strong
@@ -936,26 +984,36 @@ img
 			color: #063561
 			margin-bottom: 4px
 		h3
+			font-size: 20px
 			font-weight: 500
-			font-size: 22px
 			line-height: 25px
 			color: #063561
 			margin-bottom: 15px
+			+rmin(768)
+				font-size: 22px
 	&__suggested
 		background: rgba(141, 146, 147, 0.08)
 		padding: 20px 24px
 		margin-bottom: 30px
+		+r(768)
+			width: 111%
+			margin-left: -3%
 		p
 			font-weight: 500
 			font-size: 14px
 			line-height: 15px
 			color: #3C3D3E
+			margin-bottom: 20px
 		ul
 			display: flex
 			align-items: center
 		li
 			display: flex
 			width: 50%
+			+r(768)
+				width: 100%
+				&:last-child
+					display: none
 		a
 			font-family: 'Inter'
 			font-size: 16px
@@ -965,9 +1023,12 @@ img
 			opacity: 0.8
 			max-width: 210px
 		img
-			width: 62px
-			height: 70px
+			width: 72px
+			height: 72px
 			margin-right: 16px
+			+rmin(768)
+				width: 62px
+				height: 70px
 	&__questions
 		background: linear-gradient(98.12deg, #409DD7 0.46%, #2E94D3 100%)
 		border-radius: 2px
@@ -1021,6 +1082,8 @@ img
 	&__tags
 		display: flex
 		align-items: center
+		+r(768)
+			flex-wrap: wrap
 		span
 			font-weight: 500
 			font-size: 16px
@@ -1048,22 +1111,37 @@ img
 		margin-left: 18px
 	li
 		font-weight: 500
-		font-size: 16px
+		font-size: 12px
 		line-height: 130%
 		letter-spacing: 0.04em
 		color: #063561
 		display: flex
 		align-items: center
+		+rmin(768)
+			font-size: 16px
 		&:not(:last-child):after
 			content: ''
-			width: 8px
-			height: 12px
-			background-image: url(../img/breadcrumbs-arrow.svg)
+			cursor: pointer
+			width: 6px
+			height: 6px
+			transform: rotate(-45deg)
+			border-style: solid
+			border-color: #0D2D42
+			border-width: 0 1px 1px 0
 			display: inline-block
-			margin-left: 13px
-			margin-right: 13px
+			margin-left: 9px
+			margin-right: 9px
+			+rmin(768)
+				width: 8px
+				height: 8px
+				border-width: 0 2px 2px 0
+				margin-left: 13px
+				margin-right: 13px
+
 		a
 			color: #9A9FA2
+			+r(768)
+				text-decoration: none
 
 
 .single,
@@ -1082,6 +1160,8 @@ img
 
 
 .sidebar
+	+r(768)
+		display: none
 	&__widget
 		margin-bottom: 52px
 	&__title
@@ -1243,6 +1323,8 @@ img
 	align-items: center
 	margin-top: 25px
 	margin-bottom: 22px
+	+rmin(768)
+		display: none
 	li
 		font-weight: 500
 		font-size: 12px
