@@ -439,8 +439,8 @@ img
 
 .tags
 	&__link
+		font-size: 10px
 		padding: 8px 15px
-		font-size: 12px
 		line-height: 130%
 		text-align: center
 		color: #063561
@@ -450,6 +450,8 @@ img
 		background: #F2F2F2
 		text-decoration: none
 		border-radius: 4px
+		+rmin(768)
+			font-size: 12px
 
 .popular-tags
 	display: none
@@ -859,7 +861,6 @@ img
 			.about &
 				width: 760px
 	&__in
-		padding-right: 0
 		padding-bottom: 24px
 		border-bottom: 2px solid rgba(141, 146, 147, 0.2)
 		margin-bottom: 40px
@@ -954,11 +955,17 @@ img
 				height: 64px
 				margin-right: 44px
 			.article__footer &
-				width: 68px
-				height: 68px
+				width: 52px
+				height: 52px
+				+rmin(768)
+					width: 68px
+					height: 68px
 				img
-					width: 60px
-					height: 60px
+					width: 46px
+					height: 46px
+					+rmin(768)
+						width: 60px
+						height: 60px
 			img
 				border-radius: 100%
 				width: 30px
@@ -995,9 +1002,6 @@ img
 		background: rgba(141, 146, 147, 0.08)
 		padding: 20px 24px
 		margin-bottom: 30px
-		+r(768)
-			width: 111%
-			margin-left: -3%
 		p
 			font-weight: 500
 			font-size: 14px
@@ -1072,18 +1076,22 @@ img
 				color: #1B65A9
 	&__footer
 		display: flex
-		&-meta
-			p
-				font-size: 14px
-				line-height: 130%
-				letter-spacing: 0.02em
-				color: #063561
-				margin-bottom: 15px
-	&__tags
-		display: flex
+		flex-wrap: wrap
 		align-items: center
-		+r(768)
-			flex-wrap: wrap
+		&__author
+			line-height: 130%
+			letter-spacing: 0.02em
+			color: #063561
+			font-size: 16px
+			+rmin(768)
+				margin-bottom: 15px
+				font-size: 14px
+	&__tags
+		display: block
+		margin-top: 20px
+		width: 100%
+		+rmin(768)
+			margin-top: 0
 		span
 			font-weight: 500
 			font-size: 16px
@@ -1091,10 +1099,12 @@ img
 			letter-spacing: 0.02em
 			color: #063561
 			margin-right: 8px
+			float: left
 		ul
-			display: flex
-			li + li
-				margin-left: 12px
+			li
+				margin-right: 12px
+				margin-bottom: 14px
+				display: inline-block
 
 
 

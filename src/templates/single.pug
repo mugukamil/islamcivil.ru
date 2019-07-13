@@ -62,13 +62,12 @@ block content
 						footer.article__footer
 							.article__author-img.article__footer-thumb
 								img(src="img/article-author.jpg", alt="")
-							.article__footer-meta
-								p Мавлудин Караханов
-								.article__tags
-									span Теги:
-									ul.tags
-										each t in ['Поклонение', 'Рамадан', 'Мечеть', 'Мечеть', 'Шариат']
-											li: a.tags__link(href="")= t
+							p.article__footer__author Мавлудин Караханов
+							.article__tags
+								span Теги:
+								ul.tags
+									each t in ['Поклонение', 'Рамадан', 'Мечеть', 'Мечеть', 'Шариат']
+										li: a.tags__link(href="")= t
 					.article__comments
 						img(src="img/comments.png", alt="")
 				aside.article__sidebar.sidebar
