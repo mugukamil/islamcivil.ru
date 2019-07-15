@@ -8,14 +8,16 @@ block content
 		header.article__header
 			.container
 				.article__header-in
-					ul.breadcrumbs
-						li: a(href="") Главная
-						li Шариат
+					.article__header-left
+						ul.breadcrumbs
+							li: a(href="") Главная
+							li Шариат
+						.article__header-author
+							.article__author-img
+								img(src="img/article-author.jpg", alt="")
+							.article__author-text
+								span Автор: <br> Мавлудин Караханов
 					.article__meta
-						.article__author-img
-							img(src="img/article-author.jpg", alt="")
-						.article__author-text
-							span Автор: <br> Мавлудин Караханов
 						.article__views
 							p: +icon('views')
 							span 2К просмотров
@@ -75,11 +77,11 @@ block content
 						img(src="img/namaz.png", alt="")
 					.sidebar__widget.article__ad
 						img(src="img/rek.png", alt="")
-					.sidebar__widget.article__fatwas
+					.fatwas.sidebar__widget.article__fatwas
 						p.sidebar__title фетвы
 						ul
-							each f in [1, 2, 3, 4, 5]
-								li: a(href="") Шейх Мухаммад Салих аль-Мунаджид: Шариатская позиция в отношении работ Саида Кутба.
+							each f in Array(5)
+								li: a.fatwas__link(href="") Шейх Мухаммад Салих аль-Мунаджид: Шариатская позиция в отношении работ Саида Кутба.
 					.sidebar__widget.artilce__popular
 						p.sidebar__title Популярные статьи
 						ul
@@ -99,6 +101,18 @@ block content
 							img(src=`img/video.png`, alt="")
 							p: a(href="") Вам также может быть интересно
 
+			.fatwas.fatwas--mob
+				.cols
+					p.cols__title.cols__title--border Переводы фетв
+					.fatwas__num
+						each i, n in Array(5)
+							button.fatwas__number #{n+1}.
+					.fatwas__slider
+						each i, n in Array(5)
+							.fatwas__fatwa
+								a.fatwas__link(href="") Шейх Мухаммад Салих аль-Мунаджид: Шариатская позиция в отношении работ Саида Кутба.
+					a.fatwas__goto(href="") Перейти в раздел
+
 
 			.cols.cols-slider
 				p.cols__title.cols__title--border Тажке по теме
@@ -107,6 +121,8 @@ block content
 						.col
 							img(src=`img/video.png`, alt="")
 							p: a(href="") Вам также может быть интересно
+	.mobile-comments
+		img(src="img/mobile-comments.png", alt="")
 
 
 

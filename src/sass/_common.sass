@@ -2,6 +2,7 @@ body
 	font-family: 'Gotham Pro'
 	font-size: 14px
 	min-width: 360px
+	background: white
 
 img
 	max-width: 100%
@@ -209,6 +210,8 @@ img
 .site-search
 	margin-top: 50px
 	display: none
+	.search-page &
+		display: block
 	+rmin(1024)
 		display: block
 	&__row
@@ -224,13 +227,19 @@ img
 		background: rgba(0, 26, 159, 0.9)
 		border-radius: 4px
 		padding: 13px 38px
+		+r(768)
+			padding: 10px 20px
+			font-size: 18px
+			margin-left: 10px
 	p
 		font-size: 16px
 		line-height: 140%
 		letter-spacing: 0.02em
 		color: #8D9293
-		margin-left: 20px
 		margin-top: 13px
+		+rmin(768)
+			margin-left: 20px
+
 
 
 .input-search
@@ -339,7 +348,6 @@ img
 		letter-spacing: 0.02em
 		text-decoration: underline
 		color: #FFFFFF
-		padding-left: 12px
 		display: inline-block
 		font-weight: 500
 	&__footer
@@ -638,7 +646,10 @@ img
 			color: #771726
 
 .search-articles
-	padding: 0 20px
+	padding: 0
+	+rmin(768)
+		padding: 0 20px
+
 
 .search-section
 	padding-bottom: 30px
@@ -656,6 +667,8 @@ img
 		padding: 0 20px
 		margin-top: 60px
 		margin-bottom: -60px
+		+r(768)
+			padding: 0
 		a
 			font-size: 16px
 			line-height: 15px
@@ -847,16 +860,31 @@ img
 		&-in
 			display: flex
 			align-items: center
-			padding: 20px 10px 40px 10px
-			flex-wrap: wrap
+			padding: 20px 0 40px 0
+			justify-content: space-between
 			+rmin(768)
 				flex-wrap: nowrap
+				padding: 20px 10px 40px 10px
+				justify-content: flex-start
+		&-left
+			display: flex
+			flex-direction: column-reverse
+			+rmin(768)
+				flex-direction: row
+		&-author
+			display: flex
+			align-items: center
+			margin-bottom: 23px
+			+rmin(768)
+				margin-bottom: 0
 	&__main
 		display: flex
 		justify-content: space-between
 		padding: 50px 0
+		+r(1024)
+			padding-bottom: 0
 	&__content
-		+rmin(768)
+		+rmin(1024)
 			width: 840px
 			.about &
 				width: 760px
@@ -864,13 +892,14 @@ img
 		padding-bottom: 24px
 		border-bottom: 2px solid rgba(141, 146, 147, 0.2)
 		margin-bottom: 40px
-		+rmin(768)
+		+rmin(1024)
 			padding-right: 80px
 	&__sidebar
 		flex-basis: 335px
 	&__share
-		+r(768)
-			display: none
+		display: none
+		+rmin(1280)
+			display: block
 		li
 			text-align: center
 			display: flex
@@ -901,6 +930,9 @@ img
 	&__meta
 		display: flex
 		align-items: center
+		flex-direction: column-reverse
+		+rmin(768)
+			flex-direction: row
 	&__views
 		margin-right: 0
 		display: flex
@@ -920,17 +952,20 @@ img
 		color: rgba(13, 45, 66, 0.8)
 		display: flex
 		align-items: center
+		margin-bottom: 40px
 		span
 			margin-left: 3px
 		+rmin(768)
 			font-size: 12px
 			display: block
+			margin-bottom: 0
 			span
 				margin-left: 0
 	&__author
 		&-text
-			margin-right: 66px
 			+rmin(768)
+				margin-right: 20px
+			+rmin(1024)
 				margin-right: 130px
 		&-text,
 		.article__views span
@@ -960,6 +995,8 @@ img
 				+rmin(768)
 					width: 68px
 					height: 68px
+					float: left
+					margin-right: 16px
 				img
 					width: 46px
 					height: 46px
@@ -998,6 +1035,9 @@ img
 			margin-bottom: 15px
 			+rmin(768)
 				font-size: 22px
+	&__comments
+		+r(1024)
+			display: none
 	&__suggested
 		background: rgba(141, 146, 147, 0.08)
 		padding: 20px 24px
@@ -1040,14 +1080,24 @@ img
 		display: flex
 		align-items: center
 		margin-bottom: 32px
+		+r(768)
+			position: relative
+			flex-direction: column
+			text-align: center
 		&-icon
 			margin-right: 22px
+			+r(768)
+				position: absolute
+				right: 17%
+				bottom: 25px
 		.icon-telegram
 			width: 35px
 			height: 30px
 			fill: white
 		&-text
 			max-width: 300px
+			+r(768)
+				margin-bottom: 18px
 			p
 				font-size: 12px
 				line-height: 130%
@@ -1078,6 +1128,8 @@ img
 		display: flex
 		flex-wrap: wrap
 		align-items: center
+		+rmin(768)
+			display: block
 		&__author
 			line-height: 130%
 			letter-spacing: 0.02em
@@ -1092,6 +1144,9 @@ img
 		width: 100%
 		+rmin(768)
 			margin-top: 0
+			display: flex
+			align-items: baseline
+			width: auto
 		span
 			font-weight: 500
 			font-size: 16px
@@ -1112,6 +1167,10 @@ img
 	display: flex
 	align-items: center
 	margin-right: 22px
+	.single-page &
+		+r(768)
+			&:after
+				content: none
 	&:after
 		content: ''
 		width: 2px
@@ -1170,7 +1229,7 @@ img
 
 
 .sidebar
-	+r(768)
+	+r(1024)
 		display: none
 	&__widget
 		margin-bottom: 52px
@@ -1235,23 +1294,6 @@ img
 		margin-bottom: 24px
 		+rmin(768)
 			display: none
-		.slick-dots
-			display: flex
-			align-items: center
-			justify-content: center
-			margin: auto
-			li
-				& + li
-					margin-left: 6px
-			button
-				font-size: 0
-				width: 6px
-				height: 6px
-				background: #C4C4C4
-				border-radius: 100%
-				display: inline-block
-			.slick-active button
-				background: $footer-color
 
 	.slick-list
 		padding: 0 40px
@@ -1361,3 +1403,115 @@ img
 
 
 
+.slick-dots
+	display: flex
+	align-items: center
+	justify-content: center
+	margin: auto
+	li
+		& + li
+			margin-left: 6px
+	button
+		font-size: 0
+		width: 6px
+		height: 6px
+		background: #C4C4C4
+		border-radius: 100%
+		display: inline-block
+	.slick-active button
+		background: $footer-color
+
+.cols-slider
+	.col
+		+r(1280)
+			padding: 0 10px
+		+r(768)
+			padding: 0
+		img
+			width: 100%
+			max-width: 300px
+		p
+			+rmin(768)
+				margin-top: 22px
+		a
+			font-weight: 500
+			font-size: 20px
+			line-height: 130%
+			color: #063561
+			text-decoration: none
+	+r(768)
+		.slick-slide
+			margin-right: 10px
+		.col
+			margin-left: -10%
+			height: 226px
+			max-width: 300px
+			position: relative
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+			p
+				position: absolute
+				bottom: 20px
+				left: 16px
+				right: 10px
+			a
+				font-size: 18px
+				font-weight: 700
+				color: white
+
+.fatwas
+	&__num
+		margin-bottom: 20px
+		.slick-slide
+			margin: 0 20px
+		.slick-list
+			width: 100%
+		.slick-track
+			width: auto
+	.slick-dots
+		margin-top: 20px
+	&--mob
+		+rmin(1024)
+			display: none
+	&__goto
+		font-size: 14px
+		line-height: 130%
+		color: #063561
+		display: block
+		text-decoration: none
+		text-align: center
+		margin-top: 32px
+		&:after
+			content: ''
+			cursor: pointer
+			width: 10px
+			height: 10px
+			transform: rotate(-45deg)
+			border-style: solid
+			border-color: $border-color
+			border-width: 0 2px 2px 0
+			display: inline-block
+			margin-left: 3px
+	&__link
+		font-family: 'Source Serif Pro'
+		font-size: 18px
+		line-height: 145%
+		color: #131212
+		display: block
+		text-decoration: none
+	&__number
+		font-family: Colus
+		font-size: 26px
+		line-height: 25px
+		color: #C7AA68
+		.slick-current &
+			color: #3C3D3E
+
+
+.mobile-comments
+	img
+		width: 100%
+	+rmin(1024)
+		display: none
