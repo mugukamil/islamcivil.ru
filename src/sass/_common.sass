@@ -50,7 +50,7 @@ img
 	+r(1280)
 		padding: 0 16px
 	&--small
-		+rmin(768)
+		+rmin(1024)
 			padding: 0 108px
 
 
@@ -669,6 +669,7 @@ img
 		margin-bottom: -60px
 		+r(768)
 			padding: 0
+			margin-top: 30px
 		a
 			font-size: 16px
 			line-height: 15px
@@ -682,30 +683,38 @@ img
 	border-top: 1px solid #DA9A1D
 	margin-top: 40px
 	&__title
+		font-size: 24px
 		font-weight: 700
-		font-size: 28px
 		line-height: 27px
 		letter-spacing: 0.01em
 		color: #063561
 		margin-bottom: 20px
+		+rmin(768)
+			font-size: 28px
 	&__text
-		font-size: 20px
+		font-size: 16px
 		line-height: 150%
 		color: #131212
 		margin-bottom: 24px
+		+rmin(768)
+			font-size: 20px
 	&__footer
 		display: flex
 		justify-content: space-between
 	&__cat
 		font-weight: 500
-		font-size: 18px
 		line-height: 150%
 		color: #C9CBCC
+		font-size: 14px
+		+rmin(768)
+			font-size: 18px
 	&__link
-		font-size: 20px
+		font-size: 16px
 		line-height: 130%
 		color: #1B65A9
 		text-decoration: none
+		+rmin(768)
+			font-size: 20px
 		&:after
 			content: ''
 			background-image: url(../img/search-arrow-right.svg)
@@ -886,12 +895,16 @@ img
 	&__content
 		+rmin(1024)
 			width: 840px
-			.about &
+			.about-page &
 				width: 760px
 	&__in
 		padding-bottom: 24px
 		border-bottom: 2px solid rgba(141, 146, 147, 0.2)
 		margin-bottom: 40px
+		.about-page &
+			border-bottom: 0
+			margin-bottom: 0
+			padding-bottom: 0
 		+rmin(1024)
 			padding-right: 80px
 	&__sidebar
@@ -945,7 +958,9 @@ img
 			margin-right: 40px
 			span
 				font-size: 14px
-				margin-left: 0
+				margin-right: 0
+			p
+				display: inline-block
 	&__date
 		font-size: 10px
 		line-height: 150%
@@ -959,8 +974,8 @@ img
 			font-size: 12px
 			display: block
 			margin-bottom: 0
-			span
-				margin-left: 0
+			p
+				display: inline-block
 	&__author
 		&-text
 			+rmin(768)
@@ -1020,6 +1035,13 @@ img
 			line-height: 24px
 			color: #131212
 			opacity: 0.8
+			.about-page &
+				+rmin(768)
+					font-size: 18px
+					line-height: 145%
+		b
+			color: black
+			font-weight: 700
 		strong
 			font-family: 'Gotham Pro'
 			font-weight: 500
@@ -1213,8 +1235,8 @@ img
 				text-decoration: none
 
 
-.single,
-.about
+.single-page,
+.about-page
 	&__bottom
 		background: #F8F9FA
 		padding: 50px 0
@@ -1515,3 +1537,39 @@ img
 		width: 100%
 	+rmin(1024)
 		display: none
+
+blockquote
+	font-family: 'Inter'
+	font-style: normal
+	font-weight: normal
+	line-height: 145%
+	font-size: 16px
+	color: #152046
+	opacity: 0.8
+	border-top: 1px solid #060554
+	border-bottom: 1px solid #060554
+	padding: 18px 25px 18px 0px
+	display: flex
+	align-items: flex-start
+	margin: 32px 0
+	+rmin(768)
+		font-size: 18px
+	&:before
+		content: '“'
+		font-family: 'Source Sans Pro';
+		font-style: normal
+		font-weight: bold
+		font-size: 48px
+		line-height: 1
+		color: #060554
+		display: inline-block
+		margin-right: 20px
+
+.about-page
+	&__home-link
+		font-family: Colus
+		font-size: 20px
+		line-height: 145%
+		text-decoration: underline
+		color: #1B65A9
+		margin-left: 20px
