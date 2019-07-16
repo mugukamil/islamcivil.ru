@@ -1,0 +1,311 @@
+.carousel {
+    position: relative;
+
+    &__read {
+        line-height: 15px;
+        color: #ffffff;
+        font-style: normal;
+        text-decoration: none;
+        border: 1px solid white;
+        transition: 0.2s;
+        font-size: 14px;
+        padding: 11px 25px;
+        &:hover {
+            background: white;
+            color: black;
+        }
+    }
+
+    &__arrows a {
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+        color: #dcbe84;
+        transition: 0.3s ease all;
+    }
+
+    &__arrows a svg {
+        transition: 0.3s ease transform;
+    }
+
+    &__arrows a.slick-disabled {
+        color: #000;
+        opacity: 0.2;
+        pointer-events: none;
+    }
+
+    &__arrows a.slick-disabled svg {
+        transform: scale(0.8);
+    }
+
+    &__arrows a:last-child {
+        margin-left: 20px;
+        position: relative;
+        bottom: 1px;
+    }
+
+    &__arrows--top {
+        margin-bottom: 30px;
+    }
+
+    &__nav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        padding-bottom: 20px;
+    }
+
+    &__nav__in {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        padding-bottom: 25px;
+    }
+
+    &__nav__list {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        flex-direction: row;
+        @include rmin(768) {
+            align-items: center;
+        }
+    }
+
+    &__nav__item {
+        color: #fff;
+        opacity: 0.6;
+        padding-bottom: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s ease all;
+        width: auto;
+        flex-basis: 15%;
+        text-align: center;
+        @include rmin(768) {
+            text-align: auto;
+            flex-basis: 32%;
+        }
+
+        &:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        &.is-active {
+            opacity: 1;
+        }
+        p {
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 145%;
+            color: #ffffff;
+            margin-bottom: 30px;
+            display: none;
+            @include rmin(768) {
+                font-size: 20px;
+                display: block;
+            }
+            @include rmin(1280) {
+                font-size: 24px;
+            }
+        }
+
+        span {
+            font-family: Colus;
+            font-size: 22px;
+            line-height: 130%;
+            color: #ffffff;
+            @include rmin(768) {
+                display: none;
+            }
+        }
+
+        a {
+            @include r(768) {
+                display: none;
+            }
+            @include rmin(1280) {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__indicator {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: #dcbe84;
+    }
+
+    &__indicator.is-slide1 {
+        left: 0;
+    }
+
+    &__indicator.is-slide2 {
+        left: 34%;
+    }
+
+    &__indicator.is-slide3 {
+        left: 66%;
+    }
+
+    &__indicator.is-active {
+        width: 32%;
+        transition: 3.9s linear all;
+    }
+
+    &__indicator__wrapper {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    @include r(767) {
+        &__list.js-headercarousel .header__item,
+        &__list.js-headercarousel .slick-list,
+        &__list.js-headercarousel .slick-slide {
+            height: 100%;
+        }
+
+        &__nav__item {
+            padding: 15px 10px;
+        }
+
+        &__nav__item span {
+            margin: 0 5px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel__nav__in {
+        padding: 0 15px;
+    }
+}
+
+@include rmin(768) {
+    .carousel__nav {
+        padding-bottom: 40px;
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: 0.3s ease all;
+        transition-delay: 0.6s;
+    }
+
+    .carousel__nav__list {
+        justify-content: space-between;
+    }
+
+    .carousel__nav__item {
+        justify-content: flex-start;
+    }
+
+    .carousel__indicator.is-active {
+        transition: 19s linear all;
+    }
+}
+
+.header__item__in {
+    position: relative;
+    z-index: 15;
+}
+
+.header__item__scrollbtn {
+    text-align: right;
+    margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+    .header__scroller {
+        position: absolute;
+        right: 0;
+        bottom: 85px;
+        text-align: center;
+    }
+
+    .carousel__list.js-headercarousel .header__item,
+    .carousel__list.js-headercarousel .slick-list,
+    .carousel__list.js-headercarousel .slick-slide {
+        height: calc(100vh);
+    }
+
+    .header__item__in {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .header__scroller {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -80%);
+    }
+
+    .header__item__scrollbtn {
+        margin-top: 170px;
+    }
+
+    .header__item {
+        padding: 320px 0 250px;
+    }
+
+    .header--withscrollbtn .header__item {
+        padding: 320px 0 70px;
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel__list,
+    .header__item,
+    .slick-slide {
+        height: 100%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .header__scroller {
+        transform: translate(-40px, -80%);
+    }
+}
+
+.header__item__bg {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.header__item__txt {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 700px;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 32px;
+    color: #ffffff;
+    p {
+        margin-bottom: 30px;
+    }
+    @include rmin(768) {
+        display: none;
+    }
+}
+
+.header__item__center {
+    text-align: center;
+}

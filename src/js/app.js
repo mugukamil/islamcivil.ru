@@ -170,4 +170,64 @@ $(document).ready(function ready() {
     },
     1024
   );
+
+  const $headercarousel = $(".js-headercarousel");
+
+  const $headercarouselNav = $(".js-headercarousel-nav");
+  const $headercarouselIndicator = $(".js-headercarousel-indicator");
+
+  $headercarousel.on("init", function() {
+    $headercarouselIndicator.addClass("is-slide1 is-active");
+  });
+  $headercarousel.on("init", function() {
+    $("body")
+      .addClass("headercarousel-is-init")
+      .removeClass("headercarousel-isnot-init");
+  });
+  $headercarousel.slick({
+    slidesToShow: 1,
+    infinite: true,
+    dots: false,
+    autoplay: true,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    autoplaySpeed: 2e4,
+    fade: true,
+    cssEase: "linear",
+    speed: 500,
+    adaptiveHeight: true,
+    prevArrow: $headercarousel.parent().find(".js-carousel-prev"),
+    nextArrow: $headercarousel.parent().find(".js-carousel-next"),
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          autoplaySpeed: 4e3
+        }
+      }
+    ]
+  });
+  $headercarousel.on("beforeChange", function() {
+    $("body").removeClass("headercarousel-is-init");
+  });
+  $headercarousel.on("beforeChange", function(t, e, i, o) {
+    $headercarouselNav.children("div").removeClass("is-active");
+    $headercarouselNav
+      .children("div")
+      .eq(o)
+      .addClass("is-active");
+    $headercarouselIndicator.removeClass(
+      "is-slide1 is-slide2 is-slide3 is-slide4 is-active"
+    );
+    $headercarouselIndicator.addClass(`is-slide${o + 1}`);
+    setTimeout(function() {
+      $headercarouselIndicator.addClass("is-active");
+    }, 300);
+  });
+  $headercarouselNav.children("div").on("click", function(event) {
+    event.preventDefault();
+
+    const e = $(this).index();
+    $headercarousel.slick("slickGoTo", e);
+  });
 });

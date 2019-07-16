@@ -1,4 +1,51 @@
 header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
+	if (bodyClass == 'home')
+		.header__scroller
+			svg(viewBox='0 0 19 32' width="19" height="32")
+				path(fill='#FFF', d='M9 20h1v5H9v-5zm.5-19A8.5 8.5 0 0 0 1 9.5v13a8.5 8.5 0 0 0 17 0v-13A8.5 8.5 0 0 0 9.5 1zm0-1A9.5 9.5 0 0 1 19 9.5v13a9.5 9.5 0 1 1-19 0v-13A9.5 9.5 0 0 1 9.5 0z')
+
+		.carousel
+			.carousel__nav
+				.container.container--small
+					.carousel__nav__in
+						.carousel__indicator__wrapper
+							.carousel__indicator.js-headercarousel-indicator
+						.js-headercarousel-nav.carousel__nav__list
+							.carousel__nav__item.is-active
+								span 01
+								p Таравих – выстаивание ночей в Рамадане
+								a.carousel__read(href="") Читать
+							.carousel__nav__item
+								span 02
+								p Хифз Корана - методы и способы
+								a.carousel__read(href="") Читать
+							.carousel__nav__item
+								span 03
+								p История строительства хиджазской дороги
+								a.carousel__read(href="") Читать
+			.carousel__list.js-headercarousel
+				.header__item.header__item--first(style='width: 100%; display: inline-block;')
+					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(https://www.lechomat.com/app/uploads/2019/01/headerhome1-1920x934.jpg);')
+					.header__item__center
+						.header__item__in.center
+							.header__item__txt
+								p Таравих – выстаивание ночей в Рамадане
+								a.carousel__read(href="") Читать
+				.header__item(style='width: 100%; display: inline-block;')
+					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(https://www.lechomat.com/app/uploads/2019/01/headerhome2-1920x934.jpg);')
+					.header__item__center
+						.header__item__in.center
+							.header__item__txt
+								p Хифз Корана - методы и способы
+								a.carousel__read(href="") Читать
+				.header__item(style='width: 100%; display: inline-block;')
+					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(img/slider.jpg);')
+					.header__item__center
+						.header__item__in.center
+							.header__item__txt
+								p История строительства хиджазской дороги
+								a.carousel__read(href="") Читать
+
 	.sticky
 		.container
 			.site-header__top.d-flex.jcsb
