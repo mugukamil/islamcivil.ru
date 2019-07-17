@@ -1,0 +1,31 @@
+nav.mobile-nav
+	header.mobile-nav__header
+		a.site-logo(href="/") ISLAMCIVIL.RU
+		.js-togglenav.mobile-nav__toggle
+			button.mobile-nav__toggle__button
+			div
+				span
+				span
+				span
+	ul.mobile-nav__menu
+		p Меню
+		each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
+			li(class=`${idx < 7 ? 'with-sub' : ''}`)
+				a(href="")= item
+				if (idx < 7)
+					ul
+						each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
+							li(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
+								a(href="")= i[0]
+								if (i.slice(1).length)
+									ul
+										each s in i.slice(1)
+											li: a(href="")= s
+	footer.mobile-nav__footer
+		ul.mobile-nav__socials
+			li
+				a(href=""): +icon('fb')
+			li
+				a(href=""): +icon('instagram')
+			li
+				a(href=""): +icon('telegram')

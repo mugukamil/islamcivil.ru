@@ -9,6 +9,15 @@
 		background: white
 		color: black
 		border-bottom: 1px solid #ebebeb
+	&.show-search
+		background: white
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06)
+		color: black
+		border-bottom: none
+		svg,
+		g,
+		path
+			fill: black
 
 .site-header
 	padding-top: 50px
@@ -79,9 +88,10 @@
 		align-items: center
 		padding-top: 5px
 		border-bottom: 2px solid $border-color
-		height: 56px
+		height: 64px
 		transition: .3s ease all
-		.is-scrolled &
+		.is-scrolled &,
+		.show-search &
 			border-bottom: 0
 		+rmin(768)
 			height: 116px
@@ -180,3 +190,6 @@
 		letter-spacing: 0.04em
 		color: #FFFFFF
 		margin-top: 20px
+
+.mobile-search
+	display: none

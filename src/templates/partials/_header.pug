@@ -1,55 +1,11 @@
 header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 	if (bodyClass == 'home')
-		.header__scroller
-			svg(viewBox='0 0 19 32' width="19" height="32")
-				path(fill='#FFF', d='M9 20h1v5H9v-5zm.5-19A8.5 8.5 0 0 0 1 9.5v13a8.5 8.5 0 0 0 17 0v-13A8.5 8.5 0 0 0 9.5 1zm0-1A9.5 9.5 0 0 1 19 9.5v13a9.5 9.5 0 1 1-19 0v-13A9.5 9.5 0 0 1 9.5 0z')
-
-		.carousel
-			.carousel__nav
-				.container.container--small
-					.carousel__nav__in
-						.carousel__indicator__wrapper
-							.carousel__indicator.js-headercarousel-indicator
-						.js-headercarousel-nav.carousel__nav__list
-							.carousel__nav__item.is-active
-								span 01
-								p Таравих – выстаивание ночей в Рамадане
-								a.carousel__read(href="") Читать
-							.carousel__nav__item
-								span 02
-								p Хифз Корана - методы и способы
-								a.carousel__read(href="") Читать
-							.carousel__nav__item
-								span 03
-								p История строительства хиджазской дороги
-								a.carousel__read(href="") Читать
-			.carousel__list.js-headercarousel
-				.header__item.header__item--first(style='width: 100%; display: inline-block;')
-					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(https://www.lechomat.com/app/uploads/2019/01/headerhome1-1920x934.jpg);')
-					.header__item__center
-						.header__item__in.center
-							.header__item__txt
-								p Таравих – выстаивание ночей в Рамадане
-								a.carousel__read(href="") Читать
-				.header__item(style='width: 100%; display: inline-block;')
-					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(https://www.lechomat.com/app/uploads/2019/01/headerhome2-1920x934.jpg);')
-					.header__item__center
-						.header__item__in.center
-							.header__item__txt
-								p Хифз Корана - методы и способы
-								a.carousel__read(href="") Читать
-				.header__item(style='width: 100%; display: inline-block;')
-					.header__item__bg(style='background-image:linear-gradient(0deg, rgba(27, 25, 25, 0.5), rgba(27, 25, 25, 0.5)), url(img/slider.jpg);')
-					.header__item__center
-						.header__item__in.center
-							.header__item__txt
-								p История строительства хиджазской дороги
-								a.carousel__read(href="") Читать
+		include ./_carousel
 
 	.sticky
 		.container
 			.site-header__top.d-flex.jcsb
-				button.site-header__menu-icon
+				button.site-header__menu-icon.js-togglenav
 					svg(width='23', height='15', fill='none', xmlns='http://www.w3.org/2000/svg')
 						g(clip-path='url(#clip0)')
 							path(d='M.81 12h17v2h-17v-2z', fill='#fff')
@@ -66,22 +22,13 @@ header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 								path(fill='#fff', transform='translate(.81 6)', d='M0 0h9v2H0z')
 
 				a.site-logo(href="/") ISLAMCIVIL.RU
-				nav.site-menu
-					ul.site-menu__list
-						each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
-							li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
-								a.site-menu__link(href="")= item
-								if (idx < 7)
-									.site-menu__sub-out
-										ul.site-menu__sub.sub-menu
-											each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
-												li.sub-menu__item(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
-													a.sub-menu__link(href="")= i[0]
-													if (i.slice(1).length)
-														ul.sub-menu__sub
-															each s in i.slice(1)
-																li: a(href="")= s
-				button.site-header__search-icon: +icon('search-icon')
+				include ./_site-nav
+				button.site-header__search-icon.js-toggle-search: +icon('search-icon')
+				.mobile-search
+					form.mobile-search__form(action="")
+						input(type="search" placeholder="Поиск по сайту")
+						button(type="submit"): +icon('search-icon')
+
 
 	if (bodyClass != 'home')
 		.container.container--small

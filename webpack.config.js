@@ -1,10 +1,11 @@
 const webpack = require("webpack");
 const path = require("path");
-const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const config = require("./gulp/config");
 
 function createConfig(env) {
-  let isProduction; let webpackConfig;
+  let isProduction;
+  let webpackConfig;
 
   if (env === undefined) {
     env = process.env.NODE_ENV;
@@ -97,7 +98,7 @@ function createConfig(env) {
           options: {
             fix: true,
             cache: true,
-            ignorePattern: `${__dirname  }/src/js/lib/`
+            ignorePattern: `${__dirname}/src/js/lib/`
           }
         },
         {

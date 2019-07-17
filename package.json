@@ -27,14 +27,13 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "browser-sync": "^2.26.3",
+    "css-loader": "^3.0.0",
     "css-mqpacker": "^7.0.0",
     "del": "^4.0.0",
     "eslint": "^5.15.1",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-formatter-pretty": "^2.1.1",
     "eslint-loader": "^2.1.2",
-    "eslint-plugin-dollar-sign": "^1.0.2",
     "eslint-plugin-import": "^2.16.0",
     "glslify-loader": "^2.0.0",
     "gulp": "^4.0.0",
@@ -73,7 +72,8 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-    "slick-carousel": "^1.8.1",
-    "jquery": "^3.4.1"
+    "@material/drawer": "^3.0.0",
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1"
   }
 }

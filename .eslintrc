@@ -7,7 +7,6 @@
   },
   "extends": ["prettier"],
   "rules": {
-    "dollar-sign/dollar-sign": [2, "ignoreProperties"],
     "no-unused-vars": 1
   }
 }

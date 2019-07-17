@@ -1,24 +1,27 @@
 import $ from "jquery";
 import "slick-carousel";
 
-$(document).ready(function ready() {
-  const $thirdCat = $(".cat:nth-child(3)");
-  if ($thirdCat.length) {
-    const thirdCatOffset = $thirdCat.length ? $thirdCat.offset().top : false;
-    const thirdCatHeight = $thirdCat.height();
+$(document).ready(function() {
+  const $body = $("body");
+  $(window).on("load", function() {
+    const $thirdCat = $(".cat:nth-child(3)");
+    if ($thirdCat.length) {
+      const thirdCatOffset = $thirdCat.offset().top;
+      const thirdCatHeight = $thirdCat.height();
 
-    $(".socials--absolute").css({
-      top: thirdCatOffset + thirdCatHeight + 40
-    });
-  }
+      $(".socials--absolute").css({
+        top: thirdCatOffset + thirdCatHeight + 40
+      });
+    }
+  });
 
   function scrollStarted() {
     const start = 1;
 
     if (start <= window.pageYOffset) {
-      document.body.classList.add("is-scrolled");
+      $body.addClass("is-scrolled");
     } else {
-      document.body.classList.remove("is-scrolled");
+      $body.removeClass("is-scrolled");
     }
   }
   if (window.innerWidth > 300) {
@@ -111,7 +114,7 @@ $(document).ready(function ready() {
     ]
   });
 
-  function slickOnMobile(slider, settings, width) {
+  function slickOnMobile(slider, settings, width, isRemembers) {
     const $window = $(window);
     $window.on("load resize", function onLoadResize() {
       if ($window.width() > width) {
@@ -122,30 +125,61 @@ $(document).ready(function ready() {
       }
       if (!slider.hasClass("slick-initialized")) {
         slider.slick(settings);
+
+        if (isRemembers) {
+          slider.slick("slickGoTo", 1);
+          setSlideVisibility(slider);
+
+          slider.on("afterChange", function() {
+            setSlideVisibility(slider);
+          });
+        }
       }
     });
   }
 
-  slickOnMobile(
-    $(".remembers__slider"),
-    {
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: true,
-      arrows: false,
-      centerMode: true,
-      centerPadding: "10%",
-      mobileFirst: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: "unslick"
-        }
-      ]
-    },
-    768
-  );
+  function setSlideVisibility(slider) {
+    //Find the visible slides i.e. where aria-hidden="false"
+    var visibleSlides = slider.find('.remembers__slide[aria-hidden="false"]');
+    //Make sure all of the visible slides have an opacity of 1
+    $(visibleSlides).each(function() {
+      $(this).css("opacity", 1);
+    });
+
+    //Set the opacity of the first and last partial slides.
+    $(visibleSlides)
+      .first()
+      .prev()
+      .css("opacity", 0);
+  }
+
+  slickOnMobile($(".remembers__slider"), {
+    dots: false,
+    arrows: false,
+    slidesToShow: 1,
+    centerMode: true
+  });
+
+  // slickOnMobile(
+  //   $(".remembers__slider"),
+  //   {
+  //     infinite: true,
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     dots: true,
+  //     arrows: false,
+  //     centerMode: true,
+  //     centerPadding: "10%",
+  //     mobileFirst: true,
+  //     responsive: [
+  //       {
+  //         breakpoint: 768,
+  //         settings: "unslick"
+  //       }
+  //     ]
+  //   },
+  //   768
+  // );
 
   slickOnMobile(
     $(".fatwas__slider"),
@@ -180,7 +214,7 @@ $(document).ready(function ready() {
     $headercarouselIndicator.addClass("is-slide1 is-active");
   });
   $headercarousel.on("init", function() {
-    $("body")
+    $body
       .addClass("headercarousel-is-init")
       .removeClass("headercarousel-isnot-init");
   });
@@ -208,7 +242,7 @@ $(document).ready(function ready() {
     ]
   });
   $headercarousel.on("beforeChange", function() {
-    $("body").removeClass("headercarousel-is-init");
+    $body.removeClass("headercarousel-is-init");
   });
   $headercarousel.on("beforeChange", function(t, e, i, o) {
     $headercarouselNav.children("div").removeClass("is-active");
@@ -229,5 +263,17 @@ $(document).ready(function ready() {
 
     const e = $(this).index();
     $headercarousel.slick("slickGoTo", e);
+  });
+
+  $(".js-togglenav").click(function() {
+    $body.toggleClass("mobilenav-is-open");
+    $body.removeClass("mobilelang-is-open");
+    $(".stickysubnav__item.is-active").removeClass("is-active");
+  });
+
+  $(".js-toggle-search").click(function() {
+    $(this)
+      .closest(".sticky")
+      .toggleClass("show-search");
   });
 });

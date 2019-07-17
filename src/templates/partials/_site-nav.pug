@@ -1,0 +1,15 @@
+nav.site-menu
+	ul.site-menu__list
+		each item, idx in [ 'Акида', 'Фикх', 'Шариат', 'Общество', 'Аналитика', 'История', 'Библиотека', 'О нас', 'Архив' ]
+			li.site-menu__item(class=`${idx < 7 ? 'with-sub' : ''}`)
+				a.site-menu__link(href="")= item
+				if (idx < 7)
+					.site-menu__sub-out
+						ul.site-menu__sub.sub-menu
+							each i in [['Поклонения - ибада', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи', 'Обряды жертвоприношения', 'Обряды жертвоприношения'], ['Торговые отношения', 'Намаз', 'Закят', 'Пост', 'Хадж', 'Очищения', 'Нормы употребления пищи'], ['Семейные отношения', 'Намаз', 'Закят', 'Пост', 'Хадж'], ['Политические отношения'], ['Уголовное право']]
+								li.sub-menu__item(class=`${i.length > 1 ? 'sub-menu__item--with-sub' : ''}`)
+									a.sub-menu__link(href="")= i[0]
+									if (i.slice(1).length)
+										ul.sub-menu__sub
+											each s in i.slice(1)
+												li: a(href="")= s

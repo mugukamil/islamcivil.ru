@@ -84,7 +84,7 @@
         flex-basis: 15%;
         text-align: center;
         @include rmin(768) {
-            text-align: auto;
+            text-align: left;
             flex-basis: 32%;
         }
 
@@ -127,7 +127,7 @@
                 display: none;
             }
             @include rmin(1280) {
-                padding: 14px 20px;
+                padding: 11px 32px;
                 font-size: 16px;
             }
         }
@@ -167,12 +167,6 @@
     }
 
     @include r(767) {
-        &__list.js-headercarousel .header__item,
-        &__list.js-headercarousel .slick-list,
-        &__list.js-headercarousel .slick-slide {
-            height: 100%;
-        }
-
         &__nav__item {
             padding: 15px 10px;
         }
@@ -221,18 +215,18 @@
     margin-top: 50px;
 }
 
+.carousel__list.js-headercarousel .header__item,
+.carousel__list.js-headercarousel .slick-list,
+.carousel__list.js-headercarousel .slick-slide {
+    height: calc(100vh);
+}
+
 @media (max-width: 767px) {
     .header__scroller {
         position: absolute;
         right: 0;
         bottom: 85px;
         text-align: center;
-    }
-
-    .carousel__list.js-headercarousel .header__item,
-    .carousel__list.js-headercarousel .slick-list,
-    .carousel__list.js-headercarousel .slick-slide {
-        height: calc(100vh);
     }
 
     .header__item__in {
@@ -262,14 +256,6 @@
 
     .header--withscrollbtn .header__item {
         padding: 320px 0 70px;
-    }
-}
-
-@media (min-width: 992px) {
-    .carousel__list,
-    .header__item,
-    .slick-slide {
-        height: 100%;
     }
 }
 
