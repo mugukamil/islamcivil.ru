@@ -366,6 +366,7 @@ img
 		display: inline-block
 		font-weight: 500
 		margin-left: 14px
+		padding-right: 10px
 	&__footer
 		margin-top: 24px
 		padding-left: 14px
@@ -890,17 +891,26 @@ img
 				flex-wrap: nowrap
 				padding: 20px 10px 40px 10px
 				justify-content: flex-start
+				.about-page &
+					padding: 40px 10px
+				.single &
+					align-items: flex-end
+
 		&-left
 			display: flex
 			flex-direction: column-reverse
 			+rmin(768)
 				flex-direction: row
+				.single &
+					align-items: flex-end
 		&-author
 			display: flex
 			align-items: center
 			margin-bottom: 23px
 			+rmin(768)
 				margin-bottom: 0
+				.single &
+					align-items: flex-end
 	&__main
 		display: flex
 		justify-content: space-between
@@ -959,6 +969,8 @@ img
 		display: flex
 		align-items: center
 		flex-direction: column-reverse
+		span
+			color: rgba(13, 45, 66, 0.8)
 		+rmin(768)
 			flex-direction: row
 	&__views
@@ -969,13 +981,17 @@ img
 			font-size: 10px
 			margin-left: 6px
 		+rmin(768)
-			display: block
 			margin-right: 40px
+			.single &
+				align-items: flex-start
+				flex-direction: column
+				p
+					margin-bottom: 4px
+				span
+					margin-left: 0
 			span
 				font-size: 14px
 				margin-right: 0
-			p
-				display: inline-block
 	&__date
 		font-size: 10px
 		line-height: 150%
@@ -987,10 +1003,16 @@ img
 			margin-left: 3px
 		+rmin(768)
 			font-size: 12px
-			display: block
 			margin-bottom: 0
 			p
 				display: inline-block
+			.single &
+				display: block
+				span
+					margin-left: 0
+				p
+					margin-bottom: 3px
+					display: block
 	&__author
 		&-text
 			+rmin(768)
@@ -1149,7 +1171,10 @@ img
 				margin-bottom: 10px
 				display: inline-block
 		&-btn
-			margin-left: auto
+			margin: auto
+			+rmin(768)
+				margin: 0
+				margin-left: auto
 			button
 				background: #FFFFFF
 				box-shadow: 0px 6px 6px rgba(13, 129, 201, 0.75)
@@ -1296,6 +1321,7 @@ img
 			line-height: 145%
 			color: #131212
 			display: block
+			text-decoration: none
 		strong
 			font-family: Colus
 			font-size: 10px
@@ -1463,7 +1489,8 @@ img
 			padding: 0
 		img
 			width: 100%
-			max-width: 300px
+			+rmin(768)
+				max-width: 300px
 		p
 			+rmin(768)
 				margin-top: 22px
@@ -1478,8 +1505,9 @@ img
 			margin-right: 10px
 		.col
 			margin-left: -10%
-			height: 226px
-			max-width: 300px
+			+rmin(768)
+				height: 226px
+				max-width: 300px
 			position: relative
 			img
 				width: 100%
