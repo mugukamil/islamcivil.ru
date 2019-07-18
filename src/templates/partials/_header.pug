@@ -26,8 +26,12 @@ header.site-header(class=`${headerExtended ? 'site-header--extended': ''}`)
 				button.site-header__search-icon.js-toggle-search: +icon('search-icon')
 				.mobile-search
 					form.mobile-search__form(action="")
-						input(type="search" placeholder="Поиск по сайту")
+						input(type="text" placeholder="Поиск по сайту")
 						button(type="submit"): +icon('search-icon')
+						button.cross-icon(type="reset")
+							span
+							span
+							span
 
 
 	if (bodyClass != 'home')

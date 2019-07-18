@@ -131,35 +131,28 @@
             bottom: -15px;
             left: 0;
         }
+    }
+}
+.cross-icon {
+    span {
+        display: block;
+        height: 2px;
+        background-color: currentColor;
+        transition: 0.3s ease all;
+        width: 15px;
+    }
 
-        & span {
-            display: block;
-            height: 2px;
-            background-color: currentColor;
-            transition: 0.3s ease all;
-            .mobilenav-is-open & {
-                width: 15px;
-            }
-        }
+    span:nth-child(1) {
+        transform: rotate(45deg) translate(0, 10px);
+    }
 
-        & span:nth-child(1) {
-            .mobilenav-is-open & {
-                transform: rotate(45deg) translate(0, 10px);
-            }
-        }
+    span:nth-child(2) {
+        margin: 5px 0;
 
-        & span:nth-child(2) {
-            margin: 5px 0;
+        opacity: 0;
+    }
 
-            .mobilenav-is-open & {
-                opacity: 0;
-            }
-        }
-
-        & span:nth-child(3) {
-            .mobilenav-is-open & {
-                transform: rotate(-45deg) translate(0, -10px);
-            }
-        }
+    span:nth-child(3) {
+        transform: rotate(-45deg) translate(0, -10px);
     }
 }

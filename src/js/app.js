@@ -3,7 +3,7 @@ import "slick-carousel";
 
 $(document).ready(function() {
   const $body = $("body");
-  $(window).on("load", function() {
+  $(window).on("load resize", function() {
     const $thirdCat = $(".cat:nth-child(3)");
     if ($thirdCat.length) {
       const thirdCatOffset = $thirdCat.offset().top;
